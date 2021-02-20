@@ -29,7 +29,7 @@ const SignIn = () => {
     const verifyLogin = () => {
         if(getAuth===true){
             console.log(getAuth);
-            return <Redirect to={{
+            return <Link to={{
                 pathname: '/account',
                 state: { aadharid: this.state.aadharid }
             }}/>

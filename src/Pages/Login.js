@@ -18,7 +18,7 @@ const Login = () => {
                 <Route  path="/account" component={Account}></Route>
                 <Route  path="/home" component={Home}></Route>
                 <Route  path="/inventory" component={Inventory}></Route>
-
+                <Route  path="/finance" component={Finance}></Route>
             </Switch>
         </div>
     )
