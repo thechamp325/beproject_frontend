@@ -1,5 +1,10 @@
-.homebackgrd{
-	background-image: url("farmerfamily1.jpeg");
+/* .homebackgrd{
 	height: 320px;
-	//background-position:center top 0% 50%
-}
+	background-position:center top 0% 50%;
+	object-fit: cover;
+} */
+.sliderimg{
+	width: 100%;
+	height: 500px;
+	object-fit: cover
+  }

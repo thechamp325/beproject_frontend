@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-const Inventory = (props) => {
+const OnlineShop = (props) => {
     return(
         <div>
-            <p>Inventory</p>
+            <p>OnlineShop</p>
         </div>
     );
 }
-export default Inventory;
+export default OnlineShop;

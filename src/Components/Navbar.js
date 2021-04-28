@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom'
                 <div className="topnav">
                     <Link to="/account/home">Home</Link>
                     <Link to="/account/inventory">Inventory</Link>
+                    {/* <input type="text" placeholder="Search.." style/> */}
                     {/* <Link to="/account/myfarm">My Farm</Link>
                      <Link to="/account/finance">My Finance</Link> 
                     <Link to="/account/schemes">Govt Schemes</Link>

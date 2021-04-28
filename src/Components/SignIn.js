@@ -48,13 +48,13 @@ const SignIn = () => {
 
 
                    <div className="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                        <input className="input100" type="text" name="" value={getAadhar} onChange={aadharHandler} placeholder="AdhaarID"></input>
+                        <input className="input100" type="text" name="aadhar" onChange={aadharHandler} placeholder="AdhaarID"></input>
                         <span className="focus-input100-1"></span>
                         <span className="focus-input100-2"></span>
                     </div><br/>
 
                    <div className="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                        <input className="input100" type="password" name="password" value={getPassword} onChange={passwordHandler} placeholder="Password"></input>
+                        <input className="input100" type="password" name="password"  onChange={passwordHandler} placeholder="Password"></input>
                         <span className="focus-input100-1"></span>
                         <span className="focus-input100-2"></span>
                     </div>
