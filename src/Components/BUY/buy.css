@@ -1,0 +1,26 @@
+.rowpadding{
+    padding:10px;
+    margin:10px;
+}
+.price{
+    font-size: 30px;
+    color: #b12704;
+}
+.product-image{
+    width: 40rem;
+    object-fit: cover;
+}
+.product-font{
+    font-style: normal;
+    font-size:  60px;
+}
+.a-button-primary {
+    background: #f0c14b !important;
+    border-color: #a88734 #9c7e31 #846a29 !important;
+    color: #111 !important;
+    width: 10rem;
+}
+.details-font{
+    font-style: normal;
+    font-size:  30px;
+}

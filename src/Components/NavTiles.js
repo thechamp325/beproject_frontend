@@ -27,7 +27,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -38,7 +38,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -49,7 +49,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -60,7 +60,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -71,7 +71,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -82,7 +82,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -93,7 +93,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 },
                 {
                     productimages:[
@@ -104,7 +104,7 @@ export default class NavTiles extends Component {
                     detailinfo:`Buy Washing Machines at exciting prices
                     and exciting discount.
                     Check out other electronic products.`,
-                    buylink:"/account/buy"
+                    buylink:"/buy"
                 }
             ]
 

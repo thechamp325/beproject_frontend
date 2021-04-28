@@ -11,7 +11,7 @@ const ProductTiles = (props) => {
                         <p className="card-text">{props.productinfo.detailinfo}</p>
                     </div>
                     <div className="card-footer">
-                        <a href={`${props.productinfo.buylink}/${props.productinfo.id}`} className="btn btn-primary">BUY</a>
+                        <a href={`${props.productinfo.buylink}`} className="btn btn-primary">BUY</a>
                     </div>
                     </div>
                 </div>

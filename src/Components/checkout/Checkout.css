@@ -1,0 +1,105 @@
+
+body {
+    font-size: 14px;
+    background-color: #f1f3f6; 
+    color: #212121;
+    font-family: Arial,sans-serif;
+}
+/* .pad{
+
+} */
+.checkout_font{
+    font-size: 24px;
+    font-weight: 600;
+    color:rgb(116, 111, 111);
+}
+.price_det_font{
+    color: #212121;
+    line-height: 1.4;
+    font-size: 16px;
+}
+.checkout-border{
+    border: 1px solid #b1a6a6 ;
+    background-color: #fff;
+    
+}
+.input-text{
+    width: 100%;
+    border:none;
+}
+.disc{
+    color:#388e3c;
+}
+.image{
+    width: 30px;
+    height: 30px;
+    margin: -10px 3px 0px 3px;
+}
+.center{
+    text-align: center;
+}
+.font_color{
+    color: rgb(112, 109, 109);
+}
+.head{
+    overflow:hidden;
+    white-space: nowrap;
+    font-size: 1.3rem;
+    text-overflow: ellipsis;
+    /* text-align: center; */
+    
+}
+.val{
+    display: inline-block;
+    padding: 3px 6px;
+    width: calc(100% - 60px);
+    height: 100%;
+    width: 46px;
+    height: 28px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+    margin: 0 5px;
+}
+.tex{
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+    text-align: center;
+}
+.incr{
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(#fff,#f9f9f9);
+    display: inline-block;
+    border: 1px solid #c2c2c2;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+    padding-top: 1px;
+    line-height: 1;
+}
+.pri{
+    font-size: xx-large;
+}
+.address{
+    white-space: nowrap;
+    /* height: 40px; */
+    overflow: hidden;
+    width:50%;
+    text-overflow: ellipsis;
+    /* text-align: center; */
+    /* display: inline-block; */
+}
+.total_price{
+    border-top: 2px dashed #e0e0e0;
+    font-weight: 500;
+    font-size: 18px;
+}
+.button{
+    position:absolute;                  
+    bottom:0;                          
+    left:0;
+}
