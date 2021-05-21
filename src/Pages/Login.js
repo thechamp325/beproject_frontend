@@ -9,7 +9,7 @@ import Buy from '../Components/BUY/buy';
 import Checkout from '../Components/checkout/Checkout';
 import Inventory from '../Components/Inventory/Inventory';
 import Finance from '../Components/Finance';
-
+import Chart from '../Components/Reactcharts/charts';
 import GenerateBill from '../Components/GenerateBill/GenerateBill';
 import OrderManagement from '../Components/Inventory/OrderManagement';
 import ProdList from '../Components/Inventory/ProdList';
@@ -26,6 +26,7 @@ const Login = () => {
         <div>
             <Switch>
                 <Route exact path ="/" component = {SignIn}></Route>
+                <Route exact path ="/chart" component = {Chart}></Route>
                 <Route  path="/signup" component={SignupForm}></Route>
                 <Route  path="/account" component={Account}></Route>
                 <Route  path="/buy" component={Buy}></Route>
