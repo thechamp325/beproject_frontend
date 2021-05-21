@@ -68,7 +68,7 @@ const SignIn = () => {
                     <div className="container-login100-form-btn m-t-20">
                         <Link to='/signup'> New Here? Let's Sign Up </Link>
                         &emsp;&emsp;
-                        <Link to='/signinexpert'> Sign In as Cutomer Instead</Link>
+                        <Link to='/signinCustomer'> Sign In as Cutomer Instead</Link>
                     </div>
 
                     <div className="text-center">
