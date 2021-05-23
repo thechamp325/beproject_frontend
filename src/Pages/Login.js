@@ -15,6 +15,7 @@ import Chart from '../Components/Reactcharts/charts';
 import GenerateBill from '../Components/GenerateBill/GenerateBill';
 import OrderManagement from '../Components/Inventory/OrderManagement';
 import ProdList from '../Components/Inventory/ProdList';
+import ProdChart from '../Components/productChart';
 import ViewGroup from '../Components/Inventory/ViewGroup';
 
 
@@ -29,6 +30,7 @@ const Login = () => {
             <Switch>
                 <Route exact path ="/" component = {SignIn}></Route>
                 <Route exact path ="/chart" component = {Chart}></Route>
+                <Route exact path ="/productchart" component = {ProdChart}></Route>
                 <Route exact path ="/signincustomer" component = {SigninCustomer}></Route>
                 <Route exact path ="/signupcustomer" component = {SignupCustomer}></Route>
                 <Route  path="/signup" component={SignupForm}></Route>
