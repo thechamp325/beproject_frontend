@@ -73,11 +73,11 @@ class ProductChart extends React.Component {
                 <InventoryNavbar />
             </div>
         <div class="m-3 ">
-        <h1 class="heading ">Search Product</h1>
+        <h1 class="heading pb-3 ">Search Product</h1>
         <div></div>
         <form onSubmit={this.handleSubmit}>
-        <div class="form-row pt-3">
-          <div class="form-group-1 col-md-6">
+        <div class="form-row pt-3 pl-3">
+          <div class="form-group-1 col-md-6 -3">
             <label>
               <input type="text" class="form-control" placeholder="Productid" name="prod" value={this.state.check} onChange={(e) => {
               this.handleChange(e) }} />
@@ -94,7 +94,7 @@ class ProductChart extends React.Component {
                 {
                     return(
                         <div>
-                            <div class="row" style={{fontSize:"20px"}}>
+                            <div class=" pl-1 pt-3 row" style={{fontSize:"20px"}}>
                                 <div class="col-md-5" >Product Name: {data.name} </div>
                                 <div class="col-md-5">Product Id: {data.id} </div>
                             </div>

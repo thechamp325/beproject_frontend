@@ -1,6 +1,6 @@
 import React ,{ReactDOM} from "react";
 import './buy.css';
-import veg from '../../media/veg.jpg';
+import veg from '../../media/image.jpg';
 
 class Buy extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ render()
             <img className="product-image" src={veg}  />;
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              <button className="btn btn-primary a-button-primary">Add To Cart</button>
+              <button className="btn btn-primary a-button-primary" onClick={this.handleclick}>Add To Cart</button>
               <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a>
             </div>
         </div>

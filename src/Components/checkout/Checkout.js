@@ -3,7 +3,7 @@ import './Checkout.css';
 import Checkout_prod from './checkout_prod.js';
 import loc from '../../media/location.png';
 import Checkout_price from './checkout_price';
-import veg from '../../media/veg.jpg';
+import veg from '../../media/image.jpg';
 class Checkout extends React.Component
 {
     constructor(props)

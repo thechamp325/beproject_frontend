@@ -18,6 +18,8 @@ import ProdList from '../Components/Inventory/ProdList';
 import ProdChart from '../Components/Inventory/productChart';
 import ViewGroup from '../Components/Inventory/ViewGroup';
 import AddPurchases from '../Components/Finance/AddPurchases';
+import Bookkeeping from '../Components/bookkeeping';
+import Bookkeeplist from '../Components/bookkeeplist';
 
 
 
@@ -32,6 +34,8 @@ const Login = () => {
                 <Route exact path ="/" component = {SignIn}></Route>
                 <Route exact path ="/chart" component = {Chart}></Route>
                 <Route exact path ="/productchart" component = {ProdChart}></Route>
+                <Route exact path ="/bookkeeping" component = {Bookkeeping}></Route>
+                <Route exact path ="/bookkeepinglist" component = {Bookkeeplist}></Route>
                 <Route exact path ="/signincustomer" component = {SigninCustomer}></Route>
                 <Route exact path ="/signupcustomer" component = {SignupCustomer}></Route>
                 <Route  path="/signup" component={SignupForm}></Route>

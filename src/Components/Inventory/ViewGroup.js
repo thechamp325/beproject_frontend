@@ -84,7 +84,7 @@ const ViewGroup = (props) => {
                 </tbody>
                 </table>
                 </div>
-                <div>
+                <div class="ml-3">
                 <button type="button" class="btn btn-primary" onClick={handleAdd}>Edit Items</button>
                 </div>
                 <div class="m-3">

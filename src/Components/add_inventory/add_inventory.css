@@ -64,7 +64,7 @@ body {
 }
 .form-group input {
   /* display: inline-block;  */
- padding :2px 300px;
+ padding :2px 100px;
 }
 .form-control {
   display: block;

@@ -1,6 +1,6 @@
 import React,{ReactDOM} from 'react';
 import './Checkout.css';
-import veg from '../../media/veg.jpg';
+import veg from '../../media/image.jpg';
 class Checkout_prod extends React.Component
 {
     constructor(props)
