@@ -1,46 +1,21 @@
 import React, { useCallback, useEffect, useState } from "react";
+import axios from 'axios';
 
 const Sales = (props) => {
-    const [getTx,setTx] = useState([{
-      id:"1",
-      date:"22-02-2020",
-      item:"shirt",
-      productid:"1",
-      quantity:"10",
-      price:"100",
-  },
-  {
-    id:"1",
-    date:"22-02-2020",
-    item:"shirt",
-    productid:"1",
-    quantity:"10",
-    price:"100",
-},
-{
- id:"1",
- date:"22-02-2020",
- item:"shirt",
- productid:"1",
- quantity:"10",
- price:"100",
-},
-{
- id:"1",
- date:"22-02-2020",
- item:"shirt",
- productid:"1",
- quantity:"10",
- price:"100",
-},
-{
- id:"1",
- date:"22-02-2020",
- item:"shirt",
- productid:"1",
- quantity:"10",
- price:"100",
-}]);
+   const urlgetSales= "http://localhost:5000/finance/getSales";
+    const [getTx,setTx] = useState([]);
+useEffect(() => {     getSalesData();}, []);
+
+
+
+const getSalesData = () => {
+   axios.get(`${urlgetSales}`)
+   .then((response) => {
+      const allSalesData =  response.data;
+      setTx(allSalesData);
+   })
+   .catch(error => console.log(`Error: ${error}`));
+}
 
   
 const renderTableHeader=()=> {
@@ -51,14 +26,14 @@ const renderTableHeader=()=> {
  };
 const renderTableData = () => {
     return getTx.map((m, index) => {
-       const { id,date,item,productid,quantity,price } = m //destructuring
+       const { _id,date,productName,productId,quantity,price } = m //destructuring
        return (
            
-          <tr key={id} style={{border:"1px solid #ddd",padding:"8px"}}>
-             <td>{id}</td>
+          <tr key={_id} style={{border:"1px solid #ddd",padding:"8px"}}>
+             <td>{_id}</td>
              <td>{date}</td>
-             <td>{item}</td>
-             <td>{productid}</td>
+             <td>{productName}</td>
+             <td>{productId}</td>
              <td>{quantity}</td>
 
              <td>{price}</td>

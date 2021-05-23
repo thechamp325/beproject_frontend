@@ -1,7 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Product from './Products';
 import PrimarySearchAppBar from '../PrimarySearchAppBar';
-import addItemsForm from './addItemsForm.css';
+import '../../Resources/vendor/bootstrap/css/bootstrap.min.css'
+import '../../Resources/css/homebackgrd.css'
+import PaymentComponent from './PaymentComponent';
+import GenerateBill_payment from './GenerateBill_payment.css';
+import Image2 from "../../Resources/images/payments/bhim.jpg";
+import Image3 from "../../Resources/images/payments/bhim.jpg";
+import Image1 from "../../Resources/images/payments/gpay.jpg";
+
+
 const GenerateBill = (props) => {
     const [getItems,setItems] = useState([]);
     const [getProductName, setProductName] = useState('');
@@ -9,6 +17,12 @@ const GenerateBill = (props) => {
     const [getQuantity, setQuantity] = useState('');
     const [getPrice, setPrice] = useState('');
     const [getFinalPrice, setFinalPrice] = useState('0');
+    const pay_images = [{imgsrc : Image1
+    },
+    { imgsrc:Image2
+      
+    }
+  ]
 
 
   const handleChangeName = (event) => {
@@ -34,6 +48,10 @@ const GenerateBill = (props) => {
     setPrice('');
     setFinalPrice(Number(getPrice)*Number(getQuantity) + Number(getFinalPrice));
 
+  }
+
+  const gpayhandler = (e) => {
+    console.log("gpay clicked");
   }
 
   const renderTableHeader=()=> {
@@ -62,13 +80,16 @@ const renderTableData = () => {
 
     return(
       <div>
+
         <PrimarySearchAppBar />
         <br/>
-        <div className= "col-12 col-md-8">
+
+        <div className= "center">
+
         <h4 style={{float:'center'}}>Generate Bill</h4>
 
-      <div className="center">
-        <form  className="form-inline" >
+      <div>
+      <form class="form-inline" role="form">
         <input type="text" value={getProductId} placeholder="ProductID" className="form-control" onChange={handleChangeId} />
         <input type="text" value={getProductName} placeholder="ProductName" className="form-control" onChange={handleChangeName} />
         <input type="text" value={getQuantity} placeholder="Quantity" className="form-control" onChange={handleChangeQuantity} />
@@ -90,9 +111,40 @@ const renderTableData = () => {
          </div>
          <h4 style={{float:'right'}}>Final Price = {getFinalPrice} </h4>
           <div className="card-footer">
-            <a href="generateBill/checkout" className="btn btn-primary">BUY</a>
+            {/* <a href="generateBill/checkout" className="btn btn-primary">BUY</a> */}
           </div>
+    
+    {/* <div>
+      <button><img src={`${pay_images[0]}`} alt="my image" onClick={gpayhandler} /></button>
+    </div> */}
+    {/* <div>
+    <div className="row text-center">
+                    {this.state.pay_images.map((payments)=>{
+                      console.log(payments);
+                        // return <PaymentComponent productinfo={payments} />
+                        return <div>hello  </div>
+                    })} 
     </div>
+    </div> */}
+    {/* <div>
+    <button><img src={`${pay_images[0]}`} alt="my image" onClick={gpayhandler} /></button>
+    </div> */}
+    <br/>
+    <div class="row">
+  <div class="column">
+  <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
+  </div>
+  <div class="column">
+    <button><img src={`${pay_images[1].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
+  </div>
+  <div class="column">
+  <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
+  </div>
+  <div class="column">
+  <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
+  </div>
+</div>
+</div>
     </div>
     );
 }

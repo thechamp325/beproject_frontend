@@ -18,7 +18,11 @@ export class SignupCustomer extends Component {
         super(props)
     
             this.state = {
-                fullname:'',
+                username:'',
+                mobile:'',
+                password:'',
+                confirmpassword:'',
+                name:'',
                 aadharid:'',
                 address:'',
                 zipcode:'',
@@ -27,14 +31,23 @@ export class SignupCustomer extends Component {
                 taluka:'',
                 reg:0
             }
+            this.baseState = this.state 
     }
     
     submitHandler =(e) =>{ 
         e.preventDefault() ;
-        console.log(this.state)
-        axios.post('https://jsonplaceholder.typicode.com/posts',this.state)
+        const uds = [this.state];
+        const data = {
+            uds: uds
+        };
+        const submitdata = {
+            data: data
+        };
+        console.log(data);
+        axios.post('http://localhost:5000/customer/postinfo',submitdata)
         .then(response => {
              console.log(response)
+             this.setState(this.baseState);
             if(response.data.id===101)
             {
                 this.setState({reg:1})
@@ -44,7 +57,7 @@ export class SignupCustomer extends Component {
     }
     changeHandler = (event) =>{   this.setState({[event.target.name]:event.target.value})    }
     render() {
-        const {fullname,aadharid,address,zipcode,state,district,taluka}=this.state
+        const {username,password,confirmpassword,mobile,name,aadharid,address,zipcode,state,district,taluka}=this.state
         if(this.state.reg===1)
         {
             return(<Redirect to="/"></Redirect>)
@@ -57,9 +70,19 @@ export class SignupCustomer extends Component {
                         <span className="login100-form-title p-b-33">
                             Customer SignUp
                         </span>
+                        <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                            <input className="input100" type="text" name="username" value={username} onChange={this.changeHandler} placeholder="Username"></input>
+                            <span className="focus-input100-1"></span>
+                            <span className="focus-input100-2"></span>
+                       </div>
+                       <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                            <input className="input100" type="text" name="mobile" value={mobile} onChange={this.changeHandler} placeholder="Mobile"></input>
+                            <span className="focus-input100-1"></span>
+                            <span className="focus-input100-2"></span>
+                       </div>
 
                        <div className="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                            <input className="input100" type="text" name="fullname" value={fullname} onChange={this.changeHandler} placeholder="Username"></input>
+                            <input className="input100" type="text" name="name" value={name} onChange={this.changeHandler} placeholder="Full Name"></input>
                             <span className="focus-input100-1"></span>
                             <span className="focus-input100-2"></span>
                        </div>
@@ -101,13 +124,13 @@ export class SignupCustomer extends Component {
                         </div>
 
                        <div className="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                            <input className="input100" type="password" name="password" placeholder="Password"></input>
+                            <input className="input100" type="password" name="password" value={password} onChange={this.changeHandler} placeholder="Password"></input>
                             <span className="focus-input100-1"></span>
                             <span className="focus-input100-2"></span>
                         </div>
 
                         <div className="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                            <input className="input100" type="password" name="password" placeholder="Confirm Password"></input>
+                            <input className="input100" type="password" name="confirmpassword" value={confirmpassword} onChange={this.changeHandler} placeholder="Confirm Password"></input>
                             <span className="focus-input100-1"></span>
                             <span className="focus-input100-2"></span>
                         </div>
