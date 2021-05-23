@@ -7,7 +7,7 @@ import PaymentComponent from './PaymentComponent';
 import GenerateBill_payment from './GenerateBill_payment.css';
 import Image2 from "../../Resources/images/payments/bhim.jpg";
 import Image3 from "../../Resources/images/payments/bhim.jpg";
-import Image1 from "../../Resources/images/payments/gpay.jpg";
+import Image1 from "../../Resources/images/payments/gpay.jpeg";
 
 
 const GenerateBill = (props) => {
@@ -130,20 +130,7 @@ const renderTableData = () => {
     <button><img src={`${pay_images[0]}`} alt="my image" onClick={gpayhandler} /></button>
     </div> */}
     <br/>
-    <div class="row">
-  <div class="column">
-  <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
-  </div>
-  <div class="column">
-    <button><img src={`${pay_images[1].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
-  </div>
-  <div class="column">
-  <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
-  </div>
-  <div class="column">
-  <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
-  </div>
-</div>
+    <button><img src={`${pay_images[0].imgsrc}`} alt="Forest" onClick={gpayhandler} style={{width: "50%"}}/></button>
 </div>
     </div>
     );
