@@ -8,6 +8,7 @@ const ViewGroup = (props) => {
             id:"1",
             quantity:100,
             price:1000
+            
         },
         {
             name:"trousers",
@@ -19,6 +20,35 @@ const ViewGroup = (props) => {
     ])
 
     const [getaddItems,setaddItems] = useState();
+    const [prodname,setprodname] = useState();
+    const [id,setid] = useState();
+    const [getItem,setItem] = useState([]);
+    const [getProductName, setProductName] = useState('');
+    // const [getProductId, setProductId] = useState('');
+
+    const handleChangeprod = (event) => {
+    setprodname(event.target.value)
+    }
+
+    const handleChangeid = (event) => {
+    setid(event.target.value)
+    }
+    const handlechangecheck=(event,name)=>{
+        //  console.log(name);
+        const newList = getItem.concat({ name :name});
+        setItem(newList);
+        // setProductId('');
+        setProductName('');
+    }
+    const handleAdd =(e) => {
+        e.preventDefault();   
+        
+        
+    
+      }
+    const handleSubmit = (event) => {
+        
+        }
     return(
         <div>
             <div>
@@ -38,6 +68,7 @@ const ViewGroup = (props) => {
                     <tbody>
                     {getItems.map((items,index)=>{
                         index=index+1;
+                        
                         return (
                             <tr>
                                 <th scope="row">{index}</th>
@@ -45,7 +76,7 @@ const ViewGroup = (props) => {
                                 <td>{items.quantity}</td>
                                 <td>{items.price}</td>
                                 <td>
-                                    <input type="checkbox"  />
+                                    <input type="checkbox" onChange={(e) => {handlechangecheck(e,items.name) }} />
                                 </td>
                             </tr>
                         )
@@ -54,9 +85,33 @@ const ViewGroup = (props) => {
                 </table>
                 </div>
                 <div>
-                <button type="button" class="btn btn-primary">Edit Items</button>
-                <button type="button" class="btn btn-primary">Add Items</button>
+                <button type="button" class="btn btn-primary" onClick={handleAdd}>Edit Items</button>
                 </div>
+                <div class="m-3">
+                <div class="pt-3 pb-3" style={{fontSize:"20px"}}> ADD ITEMS</div>
+            
+            <form onSubmit={handleSubmit}>
+                <div class="form-row">
+                    <div class="form-group-1 col-md-3">
+                        <label>
+                        <input type="text" class="form-control" placeholder="Product" name="prod" value={prodname} onChange={(e) => {
+                        handleChangeprod(e) }} />
+                        </label>
+                    </div>
+                
+                    <div class="form-group-1 col-md-3">
+                        <label>
+                        <input type="text" class="form-control" placeholder="ProductId" name="id" value={id} onChange={(e) => {
+                         handleChangeid(e) }} />
+                        </label>
+                    </div>
+                    
+                    <div class="form-group-1 col-md-3">
+                        <input type="submit"class="btn btn-primary" value="AddItems" />
+                    </div>
+              </div>
+        </form>
+        </div>
 
         </div>
     )

@@ -17,6 +17,25 @@ const ProdList = (props) =>{
             expiry:"2021-02-02"
         }
 ]);
+const [groupname,setgroupname] = useState();
+const [prodname,setprodname] = useState();
+const [id,setid] = useState();
+
+
+const handleChangegroup = (event) => {
+   setgroupname(event.target.value)
+}
+
+const handleChangeprod = (event) => {
+setprodname(event.target.value)
+}
+
+const handleChangeid = (event) => {
+setid(event.target.value)
+}
+const handleSubmit = (event) => {
+    
+    }
 
     return(
         <div>
@@ -51,6 +70,38 @@ const ProdList = (props) =>{
                 </table>
                 </div>
             </div>
+            <div class="m-3">
+                <div class="pt-3 pb-3" style={{fontSize:"20px"}}> ADD GROUP</div>
+            
+            <form onSubmit={handleSubmit}>
+                <div class="form-row">
+                    <div class="form-group-1 col-md-3">
+                        <label>
+                        <input type="text" class="form-control" placeholder="Product" name="prod" value={prodname} onChange={(e) => {
+                        handleChangeprod(e) }} />
+                        </label>
+                    </div>
+                
+                    <div class="form-group-1 col-md-3">
+                        <label>
+                        <input type="text" class="form-control" placeholder="ProductId" name="id" value={id} onChange={(e) => {
+                         handleChangeid(e) }} />
+                        </label>
+                    </div>
+
+                    <div class="form-group-1 col-md-3">
+                        <label>
+                        <input type="text" class="form-control" placeholder="GroupName" name="groupname" value={groupname} onChange={(e) => {
+                         handleChangegroup(e) }} />
+                        </label>
+                    </div>
+
+                    <div class="form-group-1 col-md-3">
+                        <input type="submit"class="btn btn-primary" value="AddGroup" />
+                    </div>
+              </div>
+        </form>
+        </div>
         </div>
     )
 }
