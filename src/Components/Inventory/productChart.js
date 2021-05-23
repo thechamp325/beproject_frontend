@@ -1,7 +1,8 @@
 
 import React ,{ReactDOM} from "react";
-import './search/search.css';
+import '../search/search.css';
 import { VictoryChart,VictoryLine } from "victory";
+import InventoryNavbar from './InventoryNavbar';
 const data = [
     {name: '',id: 0, inp : [
         ]},
@@ -67,7 +68,11 @@ class ProductChart extends React.Component {
   render() {
     const dataset=data;
     return (
-      <div class="m-3 ">
+      <div>
+        <div>
+                <InventoryNavbar />
+            </div>
+        <div class="m-3 ">
         <h1 class="heading ">Search Product</h1>
         <div></div>
         <form onSubmit={this.handleSubmit}>
@@ -105,6 +110,7 @@ class ProductChart extends React.Component {
         </div>
         </form>
          </div>  
+         </div>
     );
   }
 } 

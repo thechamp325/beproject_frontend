@@ -1,5 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
+import FinanceNavbar from './FinanceNavbar';
 import { VictoryBar,VictoryPie, VictoryChart, VictoryAxis,
     VictoryTheme } from 'victory';
 const data = [
@@ -16,6 +17,10 @@ class Charts extends React.Component
 {
 render(){
     return (
+        <div> 
+            <div>
+                <FinanceNavbar/>
+            </div>
         <div class="row" >
             <div class="col-md-6">
                 <VictoryChart
@@ -43,6 +48,7 @@ render(){
                 data={data2}
                 />
             </div>
+         </div>
          </div>
     );
 };

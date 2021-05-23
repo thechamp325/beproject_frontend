@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Sales from './Finance/Sales';
-import Purchases from './Finance/Purchases';
-import PrimarySearchAppBar from './PrimarySearchAppBar';
+import Sales from './Sales';
+import Purchases from './Purchases';
+import PrimarySearchAppBar from '../PrimarySearchAppBar';
+import FinanceNavbar from './FinanceNavbar';
+
 
 const Finance = (props) => {
    return(
        <div>
-           <PrimarySearchAppBar />
+           <FinanceNavbar />
            <br/>
            <div class="d-flex flex-row">
            <div className= "col-12 col-md-6">

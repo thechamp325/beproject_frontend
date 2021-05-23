@@ -8,15 +8,16 @@ import OnlineShop from './OnlineShop';
 import Buy from '../Components/BUY/buy';
 import Checkout from '../Components/checkout/Checkout';
 import Inventory from '../Components/Inventory/Inventory';
-import Finance from '../Components/Finance';
+import Finance from '../Components/Finance/Finance';
 import SigninCustomer from '../Components/signinCustomer';
 import SignupCustomer from '../Components/SignupCustomer';
-import Chart from '../Components/Reactcharts/charts';
+import Chart from '../Components/Finance/charts';
 import GenerateBill from '../Components/GenerateBill/GenerateBill';
 import OrderManagement from '../Components/Inventory/OrderManagement';
 import ProdList from '../Components/Inventory/ProdList';
-import ProdChart from '../Components/productChart';
+import ProdChart from '../Components/Inventory/productChart';
 import ViewGroup from '../Components/Inventory/ViewGroup';
+import AddPurchases from '../Components/Finance/AddPurchases';
 
 
 
@@ -45,6 +46,8 @@ const Login = () => {
                 <Route  path="/ordermanagement" component={OrderManagement}></Route>
                 <Route  path="/prodlist" component={ProdList}></Route>
                 <Route  path="/viewgroup" component={ViewGroup}></Route>
+                <Route  path="/addPurchases" component={AddPurchases}></Route>
+
 
             </Switch>
         </div>
