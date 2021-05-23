@@ -92,21 +92,21 @@ const ViewGroup = (props) => {
             
             <form onSubmit={handleSubmit}>
                 <div class="form-row">
-                    <div class="form-group-1 col-md-3">
+                    <div class="form-group col-md-3">
                         <label>
                         <input type="text" class="form-control" placeholder="Product" name="prod" value={prodname} onChange={(e) => {
                         handleChangeprod(e) }} />
                         </label>
                     </div>
                 
-                    <div class="form-group-1 col-md-3">
+                    <div class="form-group col-md-3">
                         <label>
                         <input type="text" class="form-control" placeholder="ProductId" name="id" value={id} onChange={(e) => {
                          handleChangeid(e) }} />
                         </label>
                     </div>
                     
-                    <div class="form-group-1 col-md-3">
+                    <div class="form-group col-md-3">
                         <input type="submit"class="btn btn-primary" value="AddItems" />
                     </div>
               </div>

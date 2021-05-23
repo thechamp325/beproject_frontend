@@ -44,49 +44,49 @@ class Bookkeeping extends React.Component {
        <div class={"pl-3"} style={{fontSize:"50px"}}>
            Bookeeping
        </div>
-     <form class="form-class"  onSubmit={this.handleSubmit}>
-       <div class="form-row"> 
-         <div class="form-group col-md-6">
+     <form class="form-class-1"  onSubmit={this.handleSubmit}>
+       <div class="form-row-1"> 
+         <div class="form-group-1 col-md-6">
            <label   >
-             <div class="form-group">Customer Name:</div>
-             <input  type="text" class="form-control "  placeholder="Enter Customer Name" name="Pname" value={this.state.CustomerName} onChange={(e) => {
+             <div class="form-group-1">Customer Name:</div>
+             <input  type="text" class="form-control-1 "  placeholder="Enter Customer Name" name="Pname" value={this.state.CustomerName} onChange={(e) => {
              this.handleChange(e, 'CustomerName') }} />
            </label>
          </div>
 
-         <div class="form-group col-md-6">
+         <div class="form-group-1 col-md-6">
            <label>
-             <div class="form-group">Contact Number:</div>
-             <input type="text" class="form-control"  placeholder="Enter Contact Number " name="Pcode" value={this.state.Contact} onChange={(e) => {
+             <div class="form-group-1">Contact Number:</div>
+             <input type="text" class="form-control-1"  placeholder="Enter Contact Number " name="Pcode" value={this.state.Contact} onChange={(e) => {
              this.handleChange(e, 'Contact') }} />
            </label>
          </div>
        </div>
        
-       <div class="form-row">
-         <div class="form-group col-md-6">
+       <div class="form-row-1">
+         <div class="form-group-1 col-md-6">
            <label>
-             <div class="form-group">Credit Amount:</div>
-             <input type="text" class="form-control"  placeholder="Enter Credit Amount" name="quant" value={this.state.CreditAmount} onChange={(e) => {
+             <div class="form-group-1">Credit Amount:</div>
+             <input type="text" class="form-control-1"  placeholder="Enter Credit Amount" name="quant" value={this.state.CreditAmount} onChange={(e) => {
              this.handleChange(e, 'CreditAmount') }} />
            </label>
          </div>
        
        
-         <div class="form-group col-md-6">
+         <div class="form-group-1 col-md-6">
            <label>
-             <div class="form-group">Amount Paid:</div>
-             <input type="text" class="form-control"  placeholder="Amount Paid" name="Price" value={this.state.AmountPaid} onChange={(e) => {
+             <div class="form-group-1">Amount Paid:</div>
+             <input type="text" class="form-control-1"  placeholder="Amount Paid" name="Price" value={this.state.AmountPaid} onChange={(e) => {
              this.handleChange(e, 'AmountPaid') }} />
            </label>
          </div>
        </div>
 
-       <div class="form-row">
-         <div class="form-group col-md-6">
+       <div class="form-row-1">
+         <div class="form-group-1 col-md-6">
            <label>
-             <div class="form-group">Remaining Amount:</div>
-             <input type="text" class="form-control"  placeholder="Total Price" name="Totalprice" value={this.state.CreditAmount-this.state.AmountPaid} onChange={(e) => {
+             <div class="form-group-1">Remaining Amount:</div>
+             <input type="text" class="form-control-1"  placeholder="Total Price" name="Totalprice" value={this.state.CreditAmount-this.state.AmountPaid} onChange={(e) => {
              this.handleChange(e, 'RemainingAmount') }} />
            </label>
          </div>

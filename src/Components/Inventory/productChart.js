@@ -77,13 +77,13 @@ class ProductChart extends React.Component {
         <div></div>
         <form onSubmit={this.handleSubmit}>
         <div class="form-row pt-3 pl-3">
-          <div class="form-group-1 col-md-6 -3">
+          <div class="form-group col-md-6 -3">
             <label>
               <input type="text" class="form-control" placeholder="Productid" name="prod" value={this.state.check} onChange={(e) => {
               this.handleChange(e) }} />
             </label>
           </div>
-            <div class="form-group-1 col-md-6">
+            <div class="form-group col-md-6">
                 <input type="submit"class="btn btn-primary" value="search"  />
             </div>
         </div>
