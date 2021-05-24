@@ -11,6 +11,7 @@ class Bookkeeping extends React.Component {
      CreditAmount: "",
      AmountPaid: "",
      RemainingAmount: "",
+     PaymentDate:""
    }
    this.handleChange = this.handleChange.bind(this);
    this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,7 +43,7 @@ class Bookkeeping extends React.Component {
      
      <div>
        <div class={"pl-3"} style={{fontSize:"50px"}}>
-           Bookeeping
+           Bookkeeping
        </div>
      <form class="form-class-1"  onSubmit={this.handleSubmit}>
        <div class="form-row-1"> 
@@ -90,10 +91,20 @@ class Bookkeeping extends React.Component {
              this.handleChange(e, 'RemainingAmount') }} />
            </label>
          </div>
-       </div> 
-         <div class="center">
-           <input type="submit"class="btn btn-primary" value="Add" />
-           <a href='/bookkeepinglist' class="btn btn-primary  ml-5">Credit Book</a>
+
+         <div class="form-group-1 col-md-6">
+           <label>
+             <div class="form-group-1">Payment Date:</div>
+             <input type="Date" class="form-control-1"  placeholder="Date" name="PaymentDate" value={this.state.PaymentDate} onChange={(e) => {
+             this.handleChange(e, 'PaymentDate') }} />
+           </label>
+         </div>
+       </div>
+         <div>
+            <div  style={{paddingLeft:"450px"}}>
+                <input type="submit"class="btn btn-primary" value="Add" />
+                <a href='/bookkeepinglist' class="btn btn-primary  ml-5">Credit Book</a>
+           </div>
          </div>
      </form>  
         

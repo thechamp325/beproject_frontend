@@ -21,7 +21,10 @@ class Checkout_prod extends React.Component
     handlesubmitpos(evt) {
         if(this.state.increment>=1)
         {
-            this.setState({increment:this.state.increment +1});
+           var val=this.state.increment+1;
+            this.setState({increment:val});
+           // console.log('inpos'+val);
+            this.update(val);
         }
       
      
@@ -29,11 +32,15 @@ class Checkout_prod extends React.Component
       handlesubmitneg(evt) {
         if(this.state.increment>1)
         {
-            this.setState({increment:this.state.increment-1});
+            var val=this.state.increment-1;
+            this.setState({increment:val});
+           // console.log('inneg'+val);
+            this.update(val);
         }      
        }
-       update(){
-           this.props.val3(this.state.increment,this.props.val.cost);
+       update(value){
+        //console.log('update'+value);
+           this.props.val3(value*this.props.val.cost);
        }
       
     render()

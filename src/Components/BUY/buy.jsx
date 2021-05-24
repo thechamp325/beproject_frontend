@@ -19,8 +19,8 @@ render()
             <img className="product-image" src={veg}  />;
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              <button className="btn btn-primary a-button-primary" onClick={this.handleclick}>Add To Cart</button>
-              <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a>
+              {/* <button className="btn btn-primary a-button-primary" onClick={this.handleclick}>Add To Cart</button> */}
+              <a href='/checkout' className="btn btn-primary a-button-primary ml-3">Buy</a>
             </div>
         </div>
         <div  class="col-md-6">

@@ -6,14 +6,6 @@ import Checkout_price from './checkout_price';
 import veg from '../../media/image.jpg';
 class Checkout extends React.Component
 {
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            increment:1,
-            price:500,
-        }
-    }
     address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
     fields=[
        { cost:500,product_name:"first kansklfvnklafgfdibg alsbf sdbf ls dgnilrgf aesdgiogf awegb awegb ergfb bsjkdgbrsf n" },
@@ -23,10 +15,20 @@ class Checkout extends React.Component
     //    { cost:1000,product_name:"fifth kansklfvnklafgfdibg alsbf sdbf ls dgnilrgf aesdgiogf awegb awegb ergfb bsjkdgbrsf n" },
     //    { cost:1100,product_name:"sixth kansklfvnklafgfdibg alsbf sdbf ls dgnilrgf aesdgiogf awegb awegb ergfb bsjkdgbrsf n" },
      ];
-     update=(val1,val2)=>
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            increment:1,
+            price:this.fields[0].cost,
+        }
+    }
+    
+     
+     update=(val1)=>
      {
-        this.setState({increment:val1});
-        this.setState({price:this.state.increment*val2});
+        // this.setState({increment:val1});
+        this.setState({price:val1});
      }
     render()
     {
@@ -51,11 +53,10 @@ class Checkout extends React.Component
                     {this.fields.map((a)=>(
                         
                         <Checkout_prod val={a} val3={this.update} />
-                        
-                        
+        
                     ))}
                 </div>
-                        <Checkout_price val5={this.state}/>
+                        <Checkout_price  val5={this.state}/>
             </div>
             
         );

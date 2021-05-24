@@ -16,10 +16,10 @@ class Checkout_prod extends React.Component
     }
     
    
-       update(){
-           this.setState({cost:this.props.val.cost})
-           this.setState({product_name:this.props.val.product_name})
-       }
+    //    update(){
+    //        this.setState({cost:this.props.val.cost})
+    //        this.setState({product_name:this.props.val.product_name})
+    //    }
       
     render()
     {
@@ -46,7 +46,7 @@ class Checkout_prod extends React.Component
                 </div>
                 <div className=" d-flex justify-content-between m-2  total_price">
                     <div className="mt-3" >Total Price</div>
-                    <div  className="mr-3 mt-3">₹{this.props.val5.price-500}<span></span></div>
+                    <div  className="mr-3 mt-3">₹{this.props.val5.price-400}<span></span></div>
                 </div>
             </div>
         </div>

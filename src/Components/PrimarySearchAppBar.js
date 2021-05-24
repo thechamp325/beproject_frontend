@@ -11,6 +11,7 @@ import {Link} from 'react-router-dom'
                     <Link to="/inventory">Inventory</Link>
                     <Link to="/finance">Finance</Link>
                     <Link to="/generateBill">GenerateBill</Link>
+                    <Link to="/bookkeeping">Bookkeeping</Link>
                     <Link to="/account">Account</Link>
 
 

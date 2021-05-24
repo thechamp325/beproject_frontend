@@ -8,7 +8,8 @@ const Bookkeeplist = (props) => {
             contact:"9863521475",
             credit:1000,
             paid:100,
-            remaining:900
+            remaining:900,
+            lastpaydate:'27-08-2020'
             
         },
         {
@@ -16,8 +17,8 @@ const Bookkeeplist = (props) => {
             contact:"9685321475",
             credit:1000,
             paid:100,
-            remaining:900
-
+            remaining:900,
+            lastpaydate:'30-09-2020'
         }
     ])
 
@@ -68,6 +69,7 @@ const Bookkeeplist = (props) => {
                         <th scope="col">Contact Number</th>
                         <th scope="col">Credit Amount</th>
                         <th scope="col">Paid Amount</th>
+                        <th scope="col">Last Payment Date</th>
                         <th scope="col">Remaining Amount</th>
                         </tr>
                     </thead>
@@ -82,6 +84,7 @@ const Bookkeeplist = (props) => {
                                 <td>{items.contact}</td>
                                 <td>{items.credit}</td>
                                 <td>{items.paid}</td>
+                                <td>{items.lastpaydate}</td>
                                 <td>{items.remaining}</td>
                                 <td>
                                     <input type="checkbox" onChange={(e) => {handlechangecheck(e,items.name) }} />
