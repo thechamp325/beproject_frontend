@@ -1,7 +1,9 @@
 import React ,{ReactDOM} from "react";
 import './buy.css';
 import veg from '../../media/image.jpg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 class Buy extends React.Component {
+  fields={cost:800,product_name:"Powerfull Washing Machine lg" };
   constructor(props) {
     super(props);
     
@@ -19,13 +21,14 @@ render()
             </div>
             <div className="d-flex justify-content-center align-items-center">
               {/* <button className="btn btn-primary a-button-primary" onClick={this.handleclick}>Add To Cart</button> */}
-              <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a>
+              {/* <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a> */}
+              <Link class="btn btn-primary" to={{ pathname: "/checkout", state: this.fields }}>BUY</Link>
             </div>
         </div>
         <div  class="col-md-6">
-            <span className="product-font">Product and Model Name</span> 
+            <span className="product-font">{this.fields.product_name}</span> 
             <div className="d-flex align-items-center">
-              <span style={{fontSize:'20px'}}>Price:</span> <span className="price ml-2">₹ 500</span>
+              <span style={{fontSize:'20px'}}>Price:</span> <span className="price ml-2">₹ {this.fields.cost}</span>
             </div>
             <div>inclusive all taxes.</div>
             <div style={{marginTop:'20px'}}>

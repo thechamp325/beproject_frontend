@@ -50,14 +50,45 @@ class Checkout_prod extends React.Component
                 </div>
             </div>
             <div >
-                    <div className='checkout-border row m-0 p-2'>
+            <div className=' checkout-border row m-0 p-2'>
                 <div>
-                    <span className='checkout_font' >UPI Payment</span>
+                    <span className='checkout_font' >Payment Methods</span>
                 </div>
             </div>
-                <div class="checkout-border center"> 
-                      <img  style={{width:"50%"}} src={gpay}></img>
+                <div className=' checkout-border '>
+                    <div  class="pt-2">
+                        <div class="row pl-4">
+                             <div class="pr-2" >
+                              <input  type="radio" checked="checked" name="radio"/>
+                            </div> 
+                            <div> UPI</div> 
+                        </div>
+                        <div class="row pl-4" >
+                             <div class="pr-2">
+                              <input  type="radio" checked="checked" name="radio"/>
+                            </div>
+                            <div> NETBANKING</div>  
+                        </div>
+                        <div class="row pl-4" >
+                             <div class="pr-2" >
+                              <input  type="radio" checked="checked" name="radio"/>
+                            </div> 
+                            <div> CARDS</div> 
+                        </div>
+                        <div class="row pl-4" >
+                             <div class="pr-2">
+                              <input  type="radio" checked="checked" name="radio"/>
+                            </div>
+                            <div> PAY ON DELIVERY</div>  
+                        </div>
+                    </div>
+                    <div style={{paddingLeft:"330px",paddingBottom:"20px"}}>
+                        <button className='btn btn-primary' >Place Order</button>
+                    </div>
                 </div>
+                {/* <div class="checkout-border center"> 
+                    <img  style={{width:"50%"}} src={gpay}></img>
+                </div> */}
             </div>
         </div>
                 
