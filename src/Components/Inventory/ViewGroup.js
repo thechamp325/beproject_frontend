@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
+import axios from 'axios';
 import InventoryNavbar from './InventoryNavbar';
 
 const ViewGroup = (props) => {
-    const [getItems,setItems]=useState([
-        {
-            name:"tshirt",
-            id:"1",
-            quantity:100,
-            price:1000
-            
-        },
-        {
-            name:"trousers",
-            id:"2",
-            quantity:200,
-            price:1000
+    const urlgetGroupItems= "http://localhost:5000/inventory/getGroupItems/"+props.location.state.groupname;
 
-        }
-    ])
+    const [getItems,setItems]=useState([]);
+    useEffect(() => {     getGroupItems();}, []);
+
+    const getGroupItems = () => {
+        axios.get(`${urlgetGroupItems}`)
+        .then((response) => {
+           const allItems =  response.data[0].items;
+           setItems(allItems);
+        })
+        .catch(error => console.log(`Error: ${error}`));
+     }
+
+    const GroupName= props.location.state.groupname;
 
     const [getaddItems,setaddItems] = useState();
     const [prodname,setprodname] = useState();
@@ -51,6 +51,7 @@ const ViewGroup = (props) => {
         }
     return(
         <div>
+            {console.log(GroupName)}
             <div>
                 <InventoryNavbar/>
             </div>
