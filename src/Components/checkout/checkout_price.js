@@ -1,6 +1,6 @@
 import React,{ReactDOM} from 'react';
 import './Checkout.css';
-
+import gpay from "../../Resources/images/payments/gpay.jpeg";
 class Checkout_prod extends React.Component
 {
     constructor(props)
@@ -47,6 +47,16 @@ class Checkout_prod extends React.Component
                 <div className=" d-flex justify-content-between m-2  total_price">
                     <div className="mt-3" >Total Price</div>
                     <div  className="mr-3 mt-3">₹{this.props.val5.price-400}<span></span></div>
+                </div>
+            </div>
+            <div >
+                    <div className='checkout-border row m-0 p-2'>
+                <div>
+                    <span className='checkout_font' >UPI Payment</span>
+                </div>
+            </div>
+                <div class="checkout-border center"> 
+                      <img  style={{width:"50%"}} src={gpay}></img>
                 </div>
             </div>
         </div>

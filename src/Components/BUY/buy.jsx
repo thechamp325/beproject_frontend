@@ -1,7 +1,6 @@
 import React ,{ReactDOM} from "react";
 import './buy.css';
 import veg from '../../media/image.jpg';
-
 class Buy extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ render()
             </div>
             <div className="d-flex justify-content-center align-items-center">
               {/* <button className="btn btn-primary a-button-primary" onClick={this.handleclick}>Add To Cart</button> */}
-              <a href='/checkout' className="btn btn-primary a-button-primary ml-3">Buy</a>
+              <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a>
             </div>
         </div>
         <div  class="col-md-6">

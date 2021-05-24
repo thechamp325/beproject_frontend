@@ -21,6 +21,7 @@ class Checkout_prod extends React.Component
     handlesubmitpos(evt) {
         if(this.state.increment>=1)
         {
+            
            var val=this.state.increment+1;
             this.setState({increment:val});
            // console.log('inpos'+val);

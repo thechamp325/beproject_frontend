@@ -4,6 +4,7 @@ import Checkout_prod from './checkout_prod.js';
 import loc from '../../media/location.png';
 import Checkout_price from './checkout_price';
 import veg from '../../media/image.jpg';
+
 class Checkout extends React.Component
 {
     address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
@@ -57,6 +58,7 @@ class Checkout extends React.Component
                     ))}
                 </div>
                         <Checkout_price  val5={this.state}/>
+                        
             </div>
             
         );
