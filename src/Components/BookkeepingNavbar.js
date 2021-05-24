@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
-import '../../Resources/css/navbar.css'
+import '../Resources/css/navbar.css'
 import {Link} from 'react-router-dom'
- class InventoryNavbar extends Component {
+ class BookkeepingNavbar extends Component {
     render() {
         return (
            <div>
               <div class="topnav">
 
+                    {/* <Link to="/home">Home</Link> */}
                     <Link to="/account">Account</Link>
-                    <Link to="/ordermanagement">Manage Orders</Link>
-                    <Link to="/inventory">Inventory</Link>
-                    <Link to="/productchart">Product Analysis</Link>
-                    <Link to="/prodlist">Products</Link>
+                    {/* <Link to="/inventory">Inventory</Link>
+                    <Link to="/finance">Finance</Link>
+                    <Link to="/generateBill">GenerateBill</Link> */}
+                    <Link to="/bookkeeping">Bookkeeping</Link>
+                    <Link to="/bookkeepinglist">Credit Book</Link>
 
-                    {/* <Link to="/salstoes">Sales</Link>
-                    <Link to="/purchases">Purchases</Link> */}
 
 
 
@@ -30,4 +30,4 @@ import {Link} from 'react-router-dom'
         )
     }
 }
-export default InventoryNavbar;
+export default BookkeepingNavbar;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import InventoryNavbar from './InventoryNavbar';
+import BookkeepingNavbar from './BookkeepingNavbar';
 
 const Bookkeeplist = (props) => {
     const [getItems,setItems]=useState([
@@ -54,6 +54,9 @@ const Bookkeeplist = (props) => {
     //     }
     return(
         <div>
+            <div>
+                <BookkeepingNavbar/>
+            </div>
             <div class={"pl-5"} style={{fontSize:"50px"}}>
                 Credit Book
             </div>

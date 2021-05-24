@@ -2,6 +2,7 @@
 
 import React ,{ReactDOM} from "react";
 import './add_inventory/add_inventory.css';
+import BookkeepingNavbar from './BookkeepingNavbar';
 class Bookkeeping extends React.Component {
  constructor(props) {
    super(props);
@@ -42,6 +43,9 @@ class Bookkeeping extends React.Component {
    return (
      
      <div>
+       <div>
+         <BookkeepingNavbar/>
+       </div>
        <div class={"pl-3"} style={{fontSize:"50px"}}>
            Bookkeeping
        </div>

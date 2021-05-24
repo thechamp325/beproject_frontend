@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
            <div>
               <div class="topnav">
 
-                    <Link to="/home">Home</Link>
+                    <Link to="/account">Account</Link>
                     <Link to="/chart">Analysis</Link>
                     <Link to="/finance">TradeBook</Link>
                     <Link to="/addPurchases">Add Purchases</Link>

@@ -5,6 +5,8 @@ import loc from '../../media/location.png';
 import Checkout_price from './checkout_price';
 import veg from '../../media/image.jpg';
 import Popup from 'reactjs-popup';
+import OnlineShopNavbar from '../../Pages/OnlineShopNavbar';
+
 class Checkout extends React.Component
 {
     address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
@@ -36,6 +38,10 @@ class Checkout extends React.Component
     {
         
         return (
+            <div>
+                <div>
+                    <OnlineShopNavbar/>
+                </div>
             <div className='row m-0 p-3' >
                 <div className='col-md-8'> 
                     <div className='justify-content-between align-items-center checkout-border row m-0 p-2'>
@@ -80,6 +86,7 @@ class Checkout extends React.Component
                 </div>
                         <Checkout_price  val5={this.state}/>
                         
+            </div>
             </div>
             
         );

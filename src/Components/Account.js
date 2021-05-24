@@ -1,34 +1,140 @@
-import React, { useCallback,useEffect,useState } from 'react'
-import Navbar from './Navbar'
-// import Footer from './Footer'
-import Home from'../Pages/Home'
+import React, { Component } from 'react'
+import '../Resources/css/farmTiles.css'
+import ShopTile from './ShopTile'
+import axios from 'axios'
+import {Link} from 'react-router-dom'
 import {Switch,Route} from 'react-router-dom'
 import PrimarySearchAppBar from './PrimarySearchAppBar';
+import AddShop from './AddShop'
+import ShopkeeperProfile from './ShopkeeperProfile';
+class Account extends Component {
 
-const Account = (props) => {
-    const [getSearchVal,setSearchVal] = useState('');
-    const searchfunc = () => {
-        return(
-            <div>
-                <input type="text"  value={getSearchVal} placeholder="Search.." onChange={searchHandler}/>
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             posts:[{
+                farmid:1
+             }],
+             error:"",
+             gotData:"1",
+             aadharid:this.props.aadharid
+        }
+    }
+
+    loadLocalData=()=>
+    {
+        try{
+            const serializedState=localStorage.getItem("MyFarmState")
+            if(serializedState===null)
+                return undefined
+            return serializedState  
+        }
+        catch(e){
+            console.log(e)
+            return undefined
+        }
+    };
+
+    //  getFarms=()=>
+    // {
+    //     console.log("made request with aadharid" + this.state.aadharid)
+    //      //axios.get('https://jsonplaceholder.typicode.com/users',{params:{aadharid:this.state.aadharid}})
+    //     axios.get('http://localhost:8080/farmer/show/farm',{params:{aadharid:this.state.aadharid}})
+    //     .then(response => {  
+    //     this.setState({posts:response.data,
+    //                     gotData:"1"}) 
+    //     }
+    //     ) 
+    //     .catch(
+            
+    //         error=>{ 
+    //             this.setState({error:"No Farms Found"})
+    //             console.log(error) }
+    //         )
+
+    // };
+
+    // componentDidMount()
+    // {
+    //     if(this.state.aadharid!==undefined)
+    //     this.getFarms();
+    //     console.log("mounted")
+    //     let Currstate
+    //     //try to load from local storage
+    //     Currstate=this.loadLocalData()
+    //     //save state to local storage
+    //     if(Currstate===undefined)
+    //     {
+    //         try{
+    //             const serializedState=JSON.stringify(this.state)
+    //             localStorage.setItem('MyFarmState',serializedState)
+    //             console.log("saved this state")
+    //         }
+    //         catch(e)
+    //         {
+    //             console.log(e)
+    //         }
+    //     }
+    //     else{
+    //         let latestState=JSON.parse(Currstate)
+    //         console.log(latestState)
+    //         console.log("this state was retrieved")
+    //         if(this.state.aadharid===undefined)
+    //         this.setState(latestState)
+    //     }
+    // }
+     
+    
+
+
+    render() {
+        if(this.state.gotData==="0")
+        this.getFarms()
+        const{posts}=this.state
+        // console.log(this.state)
+        
+        //console.log(JSON.stringify(this.state))
+        return (
+           
+            <div> 
+
+                <div>
+                    <PrimarySearchAppBar/>
+                </div>
+                <br></br>
+                <div>
+                    <ShopkeeperProfile/>
+                </div>
+
+            <div className="mt">
+                <Link to={{pathname:"/addshop"}} className="btn bg-blue-ui white read">ADD NEW SHOP</Link> 
+                 <br/><br/>
+                 </div>  
+                
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                            <div className="row">
+                                
+                                {
+                                     posts.length ?
+                                            posts.map(post=>
+                                            <div className="col-md-4" key={post.farmid}>
+                                            <ShopTile farmid={post.farmid}></ShopTile>
+                                            </div>) 
+                                    :null
+                                }
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    { this.state.error ? <div>{this.state.error}</div>:null}    
+                    
             </div>
         )
     }
-    const searchHandler = (val) => {
-        setSearchVal(val);
-        console.log(getSearchVal);
-    }
-    return(
-        <div>
-            <PrimarySearchAppBar  />
-            <div>
-            <Switch>
-                  {/* <Route  exact path={`${this.props.match.path}/`} component={Account}></Route> */}
-                  <Route exact path={`${props.match.path}/home`} component={Home}></Route>
-                  {/* <Route exact path={`${this.props.match.path}/mandi`} component={mandi}></Route> */}
-            </Switch>  
-            </div>
-        </div>
-    );
 }
-export default Account;
+export default Account ;

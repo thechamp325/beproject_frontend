@@ -11,7 +11,7 @@ const ViewGroup = (props) => {
     const getGroupItems = () => {
         axios.get(`${urlgetGroupItems}`)
         .then((response) => {
-           const allItems =  response.data[0].items;
+           const allItems =  response.data[0];
            setItems(allItems);
         })
         .catch(error => console.log(`Error: ${error}`));
@@ -27,7 +27,7 @@ const ViewGroup = (props) => {
     // const [getProductId, setProductId] = useState('');
 
     const handleChangeprod = (event) => {
-    setprodname(event.target.value)
+    setprodname(event.target.value) 
     }
 
     const handleChangeid = (event) => {
@@ -46,9 +46,37 @@ const ViewGroup = (props) => {
         
     
       }
-    const handleSubmit = (event) => {
-        
-        }
+    
+const handleSubmit = (e) => {
+    const item = {
+        name: prodname,
+        id: id
+    }
+    const uds = {
+        name: GroupName,
+        items: item
+    }
+    // const data = {
+    //     uds:uds
+    // }
+    console.log(uds);
+
+    e.preventDefault() ;
+    
+    const submitdata = {
+        data: uds
+    };
+    console.log(uds);
+    
+    
+    axios.post('http://localhost:5000/inventory/addItemstoGroups',submitdata)
+    .then(response => {
+            console.log(response)
+            setprodname('');
+            setid('');        
+        })
+    .catch(error => { console.log(error)})
+    }
     return(
         <div>
             {console.log(GroupName)}
@@ -73,7 +101,7 @@ const ViewGroup = (props) => {
                         return (
                             <tr>
                                 <th scope="row">{index}</th>
-                                <td>{items.name}</td>
+                                <td>{items.productName}</td>
                                 <td>{items.quantity}</td>
                                 <td>{items.price}</td>
                                 <td>

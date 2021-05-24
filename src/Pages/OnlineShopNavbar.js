@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import '../Resources/css/navbar.css'
 import {Link} from 'react-router-dom'
- class PrimarySearchAppBar extends Component {
+ class OnlineShopNavbar extends Component {
     render() {
         return (
            <div>
               <div class="topnav">
 
                     {/* <Link to="/home">Home</Link> */}
-                    <Link to="/account">Account</Link>
-                    <Link to="/inventory">Inventory</Link>
+                    <Link to="/Home">Home</Link>
+                    <Link to="/checkout">Cart</Link>
+                    {/* <Link to="/inventory">Inventory</Link>
                     <Link to="/finance">Finance</Link>
                     <Link to="/generateBill">GenerateBill</Link>
-                    <Link to="/bookkeeping">Bookkeeping</Link>
+                    <Link to="/bookkeeping">Bookkeeping</Link> */}
 
 
 
@@ -28,4 +29,4 @@ import {Link} from 'react-router-dom'
         )
     }
 }
-export default PrimarySearchAppBar;
+export default OnlineShopNavbar;

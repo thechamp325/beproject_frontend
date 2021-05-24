@@ -20,6 +20,8 @@ import ViewGroup from '../Components/Inventory/ViewGroup';
 import AddPurchases from '../Components/Finance/AddPurchases';
 import Bookkeeping from '../Components/bookkeeping';
 import Bookkeeplist from '../Components/bookkeeplist';
+import AddShop from '../Components/AddShop';
+import ShopkeeperProfile from '../Components/ShopkeeperProfile';
 
 
 
@@ -51,6 +53,8 @@ const Login = () => {
                 <Route  path="/prodlist" component={ProdList}></Route>
                 <Route  path="/viewgroup" component={ViewGroup}></Route>
                 <Route  path="/addPurchases" component={AddPurchases}></Route>
+                <Route path="/addshop" component={AddShop}></Route>  
+                <Route path="/shopkeeperprofile" component={ShopkeeperProfile}></Route>  
 
 
             </Switch>
