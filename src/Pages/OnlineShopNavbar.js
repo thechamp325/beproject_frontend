@@ -10,6 +10,8 @@ import {Link} from 'react-router-dom'
                     {/* <Link to="/home">Home</Link> */}
                     <Link to="/Home">Home</Link>
                     <Link to="/Cart">Cart</Link>
+                  <Link to="/search">Search Shops</Link>
+
                     {/* <Link to="/inventory">Inventory</Link>
                     <Link to="/finance">Finance</Link>
                     <Link to="/generateBill">GenerateBill</Link>
