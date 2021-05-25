@@ -20,7 +20,7 @@ render()
             <img className="product-image" src={veg}  />;
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              {/* <button className="btn btn-primary a-button-primary" onClick={this.handleclick}>Add To Cart</button> */}
+              <div class="pr-3"><button className="btn btn-primary" onClick={this.handleclick}>Add To Cart</button></div>
               {/* <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a> */}
               <Link class="btn btn-primary" to={{ pathname: "/checkout", state: this.fields }}>BUY</Link>
             </div>

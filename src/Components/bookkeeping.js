@@ -12,7 +12,9 @@ class Bookkeeping extends React.Component {
      CreditAmount: "",
      AmountPaid: "",
      RemainingAmount: "",
-     PaymentDate:""
+     PaymentDate:"",
+     Aadharid:"",
+     EmailId:""
    }
    this.handleChange = this.handleChange.bind(this);
    this.handleSubmit = this.handleSubmit.bind(this);
@@ -62,7 +64,7 @@ class Bookkeeping extends React.Component {
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Contact Number:</div>
-             <input type="text" class="form-control-1"  placeholder="Enter Contact Number " name="Pcode" value={this.state.Contact} onChange={(e) => {
+             <input type="text" maxlength="10" class="form-control-1"  placeholder="Enter Contact Number " name="Pcode" value={this.state.Contact} onChange={(e) => {
              this.handleChange(e, 'Contact') }} />
            </label>
          </div>
@@ -91,8 +93,24 @@ class Bookkeeping extends React.Component {
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Remaining Amount:</div>
-             <input type="text" class="form-control-1"  placeholder="Total Price" name="Totalprice" value={this.state.CreditAmount-this.state.AmountPaid} onChange={(e) => {
-             this.handleChange(e, 'RemainingAmount') }} />
+             <input type="text" class="form-control-1"  placeholder="Total Price" name="Totalprice" value={this.state.CreditAmount-this.state.AmountPaid}  />
+           </label>
+         </div>
+
+         <div class="form-group-1 col-md-6">
+           <label>
+             <div class="form-group-1">Aadhar ID:</div>
+             <input type="text" class="form-control-1"  placeholder="Enter Aadhar Id" name="Aadharid" value={this.state.Aadharid} onChange={(e) => {
+             this.handleChange(e, 'Aadharid') }} />
+           </label>
+         </div>
+       </div>
+       <div class="form-row-1">
+         <div class="form-group-1 col-md-6">
+           <label>
+             <div class="form-group-1">Email ID:</div>
+             <input type="email" class="form-control-1"  placeholder="Enter Email Id" name="EmailId" value={this.state.EmailId} onChange={(e) => {
+             this.handleChange(e, 'EmailId') }} />
            </label>
          </div>
 
