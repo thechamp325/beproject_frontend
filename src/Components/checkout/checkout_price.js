@@ -38,7 +38,7 @@ class Checkout_prod extends React.Component
                 </div>
                 <div className=" d-flex justify-content-between m-2">
                     <div className="price_det_font">Discount</div>
-                    <div  className="mr-3 price_det_font disc"><span>-₹400</span></div>
+                    <div  className="mr-3 price_det_font disc"><span>-₹{this.props.val5.offer}</span></div>
                 </div>
                 <div className=" d-flex justify-content-between m-2">
                     <div className="price_det_font">Delivery Charges</div>
@@ -46,7 +46,7 @@ class Checkout_prod extends React.Component
                 </div>
                 <div className=" d-flex justify-content-between m-2  total_price">
                     <div className="mt-3" >Total Price</div>
-                    <div  className="mr-3 mt-3">₹{this.props.val5.price-400}<span></span></div>
+                    <div  className="mr-3 mt-3">₹{this.props.val5.price-this.props.val5.offer}<span></span></div>
                 </div>
             </div>
             <div >

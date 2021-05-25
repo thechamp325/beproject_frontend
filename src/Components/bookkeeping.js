@@ -1,46 +1,117 @@
 
 
-import React ,{ReactDOM} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import './add_inventory/add_inventory.css';
 import BookkeepingNavbar from './BookkeepingNavbar';
-class Bookkeeping extends React.Component {
- constructor(props) {
-   super(props);
-   this.state = {
-     CustomerName: "",
-     Contact: "",
-     CreditAmount: "",
-     AmountPaid: "",
-     RemainingAmount: "",
-     PaymentDate:"",
-     Aadharid:"",
-     EmailId:""
-   }
-   this.handleChange = this.handleChange.bind(this);
-   this.handleSubmit = this.handleSubmit.bind(this);
- }
+import axios from 'axios';
+const Bookkeeping = (props) => {
 
- handleChange(evt, field) {
-   const obj ={};
-   obj[field] = evt.target.value;
-  this.setState(obj);
+  const [state,setState] = useState();
+  const [CustomerName, setCustomerName] = useState('');
+    const [Contact, setContact] = useState('');
+    const [CreditAmount, setCreditAmount] = useState('');
+    const [AmountPaid, setAmountPaid] = useState('');
+    const [RemainingAmount, setRemainingAmount] = useState('');
+    const [PaymentDate, setPaymentDate] = useState();
+    const [Email, setEmail] = useState();
+    const [Aadharid, setAadharid] = useState();
 
- }
 
- handleSubmit(event) {
+  
+
+
+ const handleChange = (evt) => {
+   const obj =state;
+  //  obj.field = evt.target.value;
+   setState(obj);
+  //  console.log(field+ " =" +state[field])
+
+ };
+
+ const handleChangeCustomerName = (evt) => {
+  setCustomerName(evt.target.value);
+
+};
+const handleChangeEmail = (evt) => {
+  setEmail(evt.target.value);
+
+};const handleChangeAadhar = (evt) => {
+  setAadharid(evt.target.value);
+
+};
+const handleChangeContact = (evt) => {
+ setContact(evt.target.value);
+
+};
+const handleChangeCreditAmount = (evt) => {
+  setCreditAmount(evt.target.value);
+  setRemainingAmount(CreditAmount);
+
+
+};
+
+const handleChangeAmountPaid = (evt) => {
+  setAmountPaid(evt.target.value);
+  setRemainingAmount(CreditAmount-AmountPaid);
+
+
+};
+
+const handleChangePaymentDate = (evt) => {
+ setPaymentDate(evt.target.value);
+
+};
+
+ const handleSubmit = (event) =>{
   // TO DO check validations
 
+
+  const data = {
+      uds:[ {
+        CustomerName:CustomerName,
+        Mobile:Contact,
+        CreditAmount:CreditAmount,
+        AmountPaid:AmountPaid,
+        RemainingAmount:CreditAmount-AmountPaid,
+        PaymentDate:PaymentDate,
+        email:Email,
+        aadharid:Aadharid,
+        shopid:'1'
+
+      }
+    ]
+  };
+  const submitdata = {
+      data: data
+  };
+  // console.log(data);
+  setCustomerName('');
+  setAmountPaid('');
+  setContact('');
+  setCreditAmount('');
+  setRemainingAmount('');
+  setPaymentDate('');
+  setAadharid('');
+  setEmail('');
+console.log(submitdata);
   //.. 
+  axios.post('http://localhost:5000/bookkeeping/postinfo',submitdata)
+  .then(response => {
+       console.log(response)
+      
+      })
+  .catch(error => { console.log(error)})
+
 
 // call API
-   const result = {
-     p_name : this.state.ProductName,
+  //  const result = {
+  //    p_name : state.ProductName,
 
-   }
-   event.preventDefault();
- }
+  //  }
+  //  event.preventDefault();
+ };
 
- render() {
+
    
    return (
      
@@ -51,21 +122,19 @@ class Bookkeeping extends React.Component {
        <div class={"pl-3"} style={{fontSize:"50px"}}>
            Bookkeeping
        </div>
-     <form class="form-class-1"  onSubmit={this.handleSubmit}>
+     <form class="form-class-1"  onSubmit={handleSubmit}>
        <div class="form-row-1"> 
          <div class="form-group-1 col-md-6">
            <label   >
              <div class="form-group-1">Customer Name:</div>
-             <input  type="text" class="form-control-1 "  placeholder="Enter Customer Name" name="Pname" value={this.state.CustomerName} onChange={(e) => {
-             this.handleChange(e, 'CustomerName') }} />
+             <input  type="text" class="form-control-1 "  placeholder="Enter Customer Name" name="Pname" value={CustomerName} onChange={handleChangeCustomerName} />
            </label>
          </div>
 
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Contact Number:</div>
-             <input type="text" maxlength="10" class="form-control-1"  placeholder="Enter Contact Number " name="Pcode" value={this.state.Contact} onChange={(e) => {
-             this.handleChange(e, 'Contact') }} />
+             <input type="text" maxlength="10" class="form-control-1"  placeholder="Enter Contact Number " name="Pcode" value={Contact} onChange={handleChangeContact} />
            </label>
          </div>
        </div>
@@ -74,8 +143,7 @@ class Bookkeeping extends React.Component {
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Credit Amount:</div>
-             <input type="text" class="form-control-1"  placeholder="Enter Credit Amount" name="quant" value={this.state.CreditAmount} onChange={(e) => {
-             this.handleChange(e, 'CreditAmount') }} />
+             <input type="text" class="form-control-1"  placeholder="Enter Credit Amount" name="quant" value={CreditAmount} onChange={handleChangeCreditAmount} />
            </label>
          </div>
        
@@ -83,8 +151,7 @@ class Bookkeeping extends React.Component {
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Amount Paid:</div>
-             <input type="text" class="form-control-1"  placeholder="Amount Paid" name="Price" value={this.state.AmountPaid} onChange={(e) => {
-             this.handleChange(e, 'AmountPaid') }} />
+             <input type="text" class="form-control-1"  placeholder="Amount Paid" name="Price" value={AmountPaid} onChange={handleChangeAmountPaid} />
            </label>
          </div>
        </div>
@@ -93,15 +160,14 @@ class Bookkeeping extends React.Component {
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Remaining Amount:</div>
-             <input type="text" class="form-control-1"  placeholder="Total Price" name="Totalprice" value={this.state.CreditAmount-this.state.AmountPaid}  />
+             <input type="text" class="form-control-1"  placeholder="Total Price" name="Totalprice" value={CreditAmount-AmountPaid}  />
            </label>
          </div>
 
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Aadhar ID:</div>
-             <input type="text" class="form-control-1"  placeholder="Enter Aadhar Id" name="Aadharid" value={this.state.Aadharid} onChange={(e) => {
-             this.handleChange(e, 'Aadharid') }} />
+             <input type="text" class="form-control-1"  placeholder="Enter Aadhar Id" name="Aadharid" value={Aadharid} onChange={handleChangeAadhar} />
            </label>
          </div>
        </div>
@@ -109,22 +175,20 @@ class Bookkeeping extends React.Component {
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Email ID:</div>
-             <input type="email" class="form-control-1"  placeholder="Enter Email Id" name="EmailId" value={this.state.EmailId} onChange={(e) => {
-             this.handleChange(e, 'EmailId') }} />
-           </label>
+             <input type="email" class="form-control-1"  placeholder="Enter Email Id" name="EmailId" value={Email} onChange={handleChangeEmail} />
+             </label>
          </div>
 
          <div class="form-group-1 col-md-6">
            <label>
              <div class="form-group-1">Payment Date:</div>
-             <input type="Date" class="form-control-1"  placeholder="Date" name="PaymentDate" value={this.state.PaymentDate} onChange={(e) => {
-             this.handleChange(e, 'PaymentDate') }} />
+             <input type="Date" class="form-control-1"  placeholder="Date" name="PaymentDate" value={PaymentDate} onChange={handleChangePaymentDate} />
            </label>
          </div>
        </div>
          <div>
             <div  style={{paddingLeft:"450px"}}>
-                <input type="submit"class="btn btn-primary" value="Add" />
+                <buttton type="button" class="btn btn-primary" onClick={handleSubmit} >Add</buttton>
                 <a href='/bookkeepinglist' class="btn btn-primary  ml-5">Credit Book</a>
            </div>
          </div>
@@ -134,7 +198,6 @@ class Bookkeeping extends React.Component {
      
    );
  }
-} 
 export default Bookkeeping;
 
 

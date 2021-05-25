@@ -6,9 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";import V
 
 const ProdList = (props) =>{
 
-    const [getProductData,setProductData] = useState([
-      
-]);
+    const [getProductData,setProductData] = useState([]);
 const urlgetPurchases= "http://localhost:5000/inventory/allGroups/all";
 
 useEffect(() => {     getPurchasesData();}, []);

@@ -1,32 +1,29 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 import BookkeepingNavbar from './BookkeepingNavbar';
+import axios from 'axios';
+
 
 const Bookkeeplist = (props) => {
-    const [getItems,setItems]=useState([
-        {
-            name:"atharva",
-            contact:"9863521475",
-            credit:1000,
-            paid:100,
-            remaining:900,
-            lastpaydate:'27-08-2020'
-            
-        },
-        {
-            name:"rahul",
-            contact:"9685321475",
-            credit:1000,
-            paid:100,
-            remaining:900,
-            lastpaydate:'30-09-2020'
-        }
-    ])
+    // const [getItems,setItems]=useState('');
+//shopid is param
+    const urlCredit= "http://localhost:5000/bookkeeping/getinfo/1";
 
-    
+    const [Creditcust,setCreditcust]=useState([]);
+    useEffect(() => {     getGroupItems();}, []);
+
+    const getGroupItems = () => {
+        axios.get(`${urlCredit}`)
+        .then((response) => {
+           const allItems =  response.data;
+           setCreditcust(allItems);
+        })
+        .catch(error => console.log(`Error: ${error}`));
+     }
+
     // const [prodname,setprodname] = useState();
     // const [id,setid] = useState();
-    const [getItem,setItem] = useState([]);
-    const [getCustomerName, setCustomerName] = useState('');
+    // const [getItem,setItem] = useState([]);
+    // const [getCustomerName, setCustomerName] = useState('');
     // const [getProductId, setProductId] = useState('');
 
     // const handleChangeprod = (event) => {
@@ -38,10 +35,10 @@ const Bookkeeplist = (props) => {
     // }
     const handlechangecheck=(event,name)=>{
         //  console.log(name);
-        const newList = getItem.concat({ name :name});
-        setItem(newList);
+        const newList = Creditcust.concat({ name :name});
+        setCreditcust(newList);
         // setProductId('');
-        setCustomerName('');
+        // setCustomerName('');
     }
     const handleAdd =(e) => {
         e.preventDefault();   
@@ -77,18 +74,18 @@ const Bookkeeplist = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                    {getItems.map((items,index)=>{
+                    {Creditcust.map((items,index)=>{
                         index=index+1;
                         
                         return (
                             <tr>
                                 <th scope="row">{index}</th>
-                                <td>{items.name}</td>
-                                <td>{items.contact}</td>
-                                <td>{items.credit}</td>
-                                <td>{items.paid}</td>
-                                <td>{items.lastpaydate}</td>
-                                <td>{items.remaining}</td>
+                                <td>{items.CustomerName}</td>
+                                <td>{items.Mobile}</td>
+                                <td>{items.CreditAmount}</td>
+                                <td>{items.AmountPaid}</td>
+                                <td>{items.PaymentDate}</td>
+                                <td>{items.RemainingAmount}</td>
                                 <td>
                                     <input type="checkbox" onChange={(e) => {handlechangecheck(e,items.name) }} />
                                 </td>

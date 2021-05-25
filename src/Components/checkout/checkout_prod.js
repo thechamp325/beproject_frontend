@@ -9,7 +9,7 @@ class Checkout_prod extends React.Component
         this.state={
             increment:1,
             cost:0,
-            product_name:""
+            product_name:"hello"
           
            
         }
@@ -47,11 +47,12 @@ class Checkout_prod extends React.Component
     render()
     {
         return (
+
                     
                     <div className='checkout-border row m-0 p-2'>
-                        
+                        {console.log(this.props)}
                         <div className="col-3 p-2 " >
-                            <img width="100%" src={veg}/>
+                            <img width="100%" src={this.props.val.productImages}/>
                             <div className="d-flex justify-content-center align-items-center mb-lg-n3  p-2">
                                 <div>
                                     <button className="incr"  onClick={this.handlesubmitneg}>-</button>
@@ -67,10 +68,10 @@ class Checkout_prod extends React.Component
                         
                         <div className="col-5 p-2">
                             <div className="head ">
-                               <span>{this.props.val.product_name}</span>
+                               <span>{this.props.val.productName}</span>
                             </div>
                             <div className="pri">
-                                 <span >₹{this.props.val.cost}</span> 
+                                 <span >₹{this.props.val.price}</span> 
                             </div>
                             <div className="button pl-2">
                                 <button className="btn btn-primary" style={{fontSize:"10px"}}>REMOVE</button>

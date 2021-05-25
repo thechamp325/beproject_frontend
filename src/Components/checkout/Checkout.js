@@ -1,4 +1,4 @@
-import React,{ReactDOM} from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 import './Checkout.css';
 import Checkout_prod from './checkout_prod.js';
 import loc from '../../media/location.png';
@@ -7,36 +7,32 @@ import veg from '../../media/image.jpg';
 import Popup from 'reactjs-popup';
 import OnlineShopNavbar from '../../Pages/OnlineShopNavbar';
 
-class Checkout extends React.Component
-{
-    address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            increment:1,
-            price:this.props.location.state.cost,
-            address:'',
-            newadress:this.address
-        }
-        this.handleSubmit=this.handleSubmit.bind(this);
-    }
+const Checkout = (props) => {
+   const address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
+   
+        const [state,setState]= useState(props.location.state);
     
+        // setState(props.location.state)
      
-     update=(val1)=>
+    const update=(val1)=>
      {
         // this.setState({increment:val1});
-        this.setState({price:val1});
+        const obj = state;
+        obj.price=val1;
+         setState(obj);
      }
-     handleChange(event){
-         this.setState({address:event.target.value})
+    const handleChange = (event) =>{
+        const obj = state;
+        obj.address=event.target.value;
+         setState(obj);
      }
-     handleSubmit(event){
-        this.setState({newadress:this.state.address})
+     const handleSubmit =(event) =>{
+        const obj = state;
+        obj.newaddress=state.address;
+         setState(obj);
+        setState({newadress:state.address})
      }
-    render()
-    {
-        
+     
         return (
             <div>
                 <div>
@@ -54,7 +50,7 @@ class Checkout extends React.Component
                                 <span className=' checkout_font' >Delivery Address </span>
                             </div>
                             <div className='address ml-2'>
-                                <span >{this.state.newadress} </span>
+                                <span >{state.newadress} </span>
                             </div> 
                             {/* <div  >
                                 <button class="btn">Change</button>
@@ -65,12 +61,11 @@ class Checkout extends React.Component
                                         <div class="form-row ">
                                             <div class="form-group">
                                                 <label>
-                                                    <input type="text" class="form-control" placeholder="address"   onChange={(e) => {
-                                                this.handleChange(e) }} />
+                                                    <input type="text" class="form-control" placeholder="address"   onChange={handleChange} />
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <input  class="btn btn-primary" onClick={this.handleSubmit} value="ADD" />
+                                                <input  class="btn btn-primary" onClick={handleSubmit} value="ADD" />
                                             </div>
                                         </div>
                                     </form>
@@ -80,16 +75,15 @@ class Checkout extends React.Component
                     </div>
                     {/* {this.fields.map((a)=>( */}
                         
-                        <Checkout_prod val={this.props.location.state} val3={this.update} />
+                        <Checkout_prod val={props.location.state} val3={update} />
         
                     {/* ))} */}
                 </div>
-                        <Checkout_price  val5={this.state}/>
+                        <Checkout_price  val5={state}/>
                         
             </div>
             </div>
             
         );
     }
-}
 export default Checkout;

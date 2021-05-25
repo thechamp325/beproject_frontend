@@ -1,43 +1,58 @@
-import React ,{ReactDOM} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import './buy.css';
-import veg from '../../media/image.jpg';
+import axios from 'axios';
+import OnlineShopNavbar from '../../Pages/OnlineShopNavbar';
+// import veg from '../../media/image.jpg';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-class Buy extends React.Component {
-  fields={cost:800,product_name:"Powerfull Washing Machine lg" };
-  constructor(props) {
-    super(props);
+const Buy = (props) => {
+  // const fields={cost:props.location.state.productid,product_name:"Powerfull Washing Machine lg" };
+  // constructor(props) {
+  //   super(props);
     
-  }
+  // }
+  const SubmitHandlerAddtoCart = (props) => {
 
-render()
-{
+  }
+  const ProductData= props.location.state;
+
+  
+  
+  // const [groupname,setgroupname] = useState();
+  // const [prodname,setprodname] = useState();
+  // const [id,setid] = useState();
 
     return (
+      <div>
+        {console.log(props.location.state)}
+        <div>
+          <OnlineShopNavbar/>
+        </div>
         <div class="row rowpadding ">
 
         <div  class="col-md-6" >
           <div className="d-flex justify-content-center align-items-center" style={{padding: '30px 25px'}}>
-            <img className="product-image" src={veg}  />;
+            <img className="product-image" src={ProductData.productImages}  />
             </div>
             <div className="d-flex justify-content-center align-items-center">
-              <div class="pr-3"><button className="btn btn-primary" onClick={this.handleclick}>Add To Cart</button></div>
+              <div class="pr-3"><button className="btn btn-primary" onClick={SubmitHandlerAddtoCart}>Add To Cart</button></div>
               {/* <a href='/checkout' className="btn btn-primary a-button-primary ml-5">Buy</a> */}
-              <Link class="btn btn-primary" to={{ pathname: "/checkout", state: this.fields }}>BUY</Link>
+              <Link class="btn btn-primary" to={{ pathname: "/checkout", state: ProductData }}>BUY</Link>
             </div>
         </div>
         <div  class="col-md-6">
-            <span className="product-font">{this.fields.product_name}</span> 
+            <span className="product-font">{ProductData.productName}</span> 
             <div className="d-flex align-items-center">
-              <span style={{fontSize:'20px'}}>Price:</span> <span className="price ml-2">₹ {this.fields.cost}</span>
+              <span style={{fontSize:'20px'}}>Price:</span> <span className="price ml-2">₹ {ProductData.price}</span>
             </div>
             <div>inclusive all taxes.</div>
             <div style={{marginTop:'20px'}}>
               <span className="details-font"> Features </span>
               <table class="table table-borderless">
                 <tbody>
+ 
                   <tr>
                     <th scope="row">size</th>
-                    <td>240*500</td>
+                    <td>{ProductData.productInfo.size}</td>
                     
                   </tr>
                   <tr>
@@ -51,15 +66,11 @@ render()
                   
                   </tr>
                   <tr>
-                    <th scope="row">arthnb</th>
-                    <td>sudbfb</td>
+                    <th scope="row">Details</th>
+                    <td>{ProductData.productInfo.info}</td>
                   
                   </tr>
-                  <tr>
-                    <th scope="row">oinef</th>
-                    <td>sdkng</td>
                   
-                  </tr>
                 </tbody>
               </table>
               <span className="details-font"> About This Item </span>
@@ -75,7 +86,8 @@ render()
             </div>
         </div>
         </div>
+        </div>
     );
 }
-}
+
 export default Buy;

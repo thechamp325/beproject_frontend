@@ -1,6 +1,7 @@
 
 import React ,{ReactDOM} from "react";
 import '../Components/add_inventory/add_inventory.css';
+import PrimarySearchAppBar from '../Components/PrimarySearchAppBar';
 class Onlineshop extends React.Component {
  constructor(props) {
    super(props);
@@ -43,7 +44,7 @@ class Onlineshop extends React.Component {
      
      <div>
        <div>
-         
+         <PrimarySearchAppBar/>
        </div>
        <div class={"pl-3"} style={{fontSize:"50px"}}>
            Online Shop
