@@ -22,6 +22,8 @@ import Bookkeeping from '../Components/bookkeeping';
 import Bookkeeplist from '../Components/bookkeeplist';
 import AddShop from '../Components/AddShop';
 import ShopkeeperProfile from '../Components/ShopkeeperProfile';
+import Cart from '../Components/cart';
+import Onlineshop from '../Pages/OnlineShop';
 
 
 
@@ -55,6 +57,8 @@ const Login = () => {
                 <Route  path="/addPurchases" component={AddPurchases}></Route>
                 <Route path="/addshop" component={AddShop}></Route>  
                 <Route path="/shopkeeperprofile" component={ShopkeeperProfile}></Route>  
+                <Route path="/cart" component={Cart}></Route>
+                <Route path="/onlineshop" component={Onlineshop}></Route>  
 
 
             </Switch>

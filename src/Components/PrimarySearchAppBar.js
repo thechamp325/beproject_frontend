@@ -13,6 +13,7 @@ import {Link} from 'react-router-dom'
                     <Link to="/finance">Finance</Link>
                     <Link to="/generateBill">GenerateBill</Link>
                     <Link to="/bookkeeping">Bookkeeping</Link>
+                    <Link to="/onlineshop">OnlineShop</Link>
 
 
 
