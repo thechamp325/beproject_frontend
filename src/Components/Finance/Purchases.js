@@ -8,7 +8,6 @@ const Purchases = (props) => {
     const [getTx,setTx] = useState([]);
 useEffect(() => {     getPurchasesData();}, []);
 
-
 const getPurchasesData = () => {
    axios.get(`${urlgetPurchases}`)
    .then((response) => {

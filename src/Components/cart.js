@@ -1,41 +1,85 @@
-import React,{ReactDOM} from 'react';
+import React, { useCallback, useEffect, useState } from "react";
 import '../Components/checkout/Checkout.css';
 import Checkout_prod from '../Components/checkout/checkout_prod';
 import loc from '../media/location.png';
 import Checkout_price from '../Components/checkout/checkout_price';
 import Popup from 'reactjs-popup';
 import OnlineShopNavbar from '../Pages/OnlineShopNavbar';
+import axios from 'axios';
 
-class Cart extends React.Component
-{
-    address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
-    fields={cost:500,product_name:"Powerfull Washing Machine lg" };
-    constructor(props)
-    {
-        super(props);
-        this.state={
-            increment:1,
-            price:this.fields.cost,
-            address:'',
-            newadress:this.address
-        }
-        this.handleSubmit=this.handleSubmit.bind(this);
-    }
+const Cart = () => {
+    const address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
+    
+
+        // const [state,setState]= useState({
+        //     increment:1,
+        //     price:fields.cost,
+        //     address:'',
+        //     newadress:address
+        // });
+    
+    const urlCart= "http://localhost:5000/sustomer/getinfoCart";
+
+    const [Cart,setCart]=useState([]);
+    const urlgetCart= "http://localhost:5000/customer/getinfoCart/atharva129";
+    useEffect(() => {     getCartData();}, []);
+
+    const getCartData = () => {
+        axios.get(`${urlgetCart}`)
+        .then((response) => {
+           const allPurchasesData =  response.data[0].Cartitems;
+           setCart(allPurchasesData);
+        })
+        .catch(error => console.log(`Error: ${error}`));
+     }
+    // const fields=[{cost:Cart.price,product_name:"Powerfull Washing Machine lg" };
+
+    // useEffect(() => {     getGroupItems();}, []);
+
+    // const getGroupItems = () => {
+    //     axios.get(`${urlCart}`)
+    //     .then((response) => {
+    //        const allItems =  response.data;
+    //        setCart(allItems);
+    //     })
+    //     .catch(error => console.log(`Error: ${error}`));
+    //  };
     
      
-     update=(val1)=>
+     const update=(val1)=>
      {
         // this.setState({increment:val1});
-        this.setState({price:val1});
+        const obj = Cart;
+        obj.price= val1;
+        setCart(obj);
+     };
+    const handleChange = (event) =>{
+        const obj = Cart;
+        obj.address = event.target.value;
+        setCart(obj);
      }
-     handleChange(event){
-         this.setState({address:event.target.value})
+     const handleSubmit = (event) => {
+         const obj = Cart;
+         obj.newadress = event.target.value;
+        setCart(obj);
      }
-     handleSubmit(event){
-        this.setState({newadress:this.state.address})
-     }
-    render()
-    {
+    //  const update=(val1)=>{
+    //     // this.setState({increment:val1});
+    //     const obj = state;
+    //     obj.price=val1;
+    //      setState(obj);
+    //  }
+    // const handleChange = (event) =>{
+    //     const obj = state;
+    //     obj.address=event.target.value;
+    //      setState(obj);
+    //  }
+    //  const handleSubmit =(event) =>{
+    //     const obj = state;
+    //     obj.newaddress=state.address;
+    //      setState(obj);
+    //     setState({newadress:state.address})
+//}
         
         return (
             <div>
@@ -54,7 +98,7 @@ class Cart extends React.Component
                                 <span className=' checkout_font' >Delivery Address </span>
                             </div>
                             <div className='address ml-2'>
-                                <span >{this.state.newadress} </span>
+                                <span >{Cart.newadress} </span>
                             </div> 
                             {/* <div  >
                                 <button class="btn">Change</button>
@@ -65,12 +109,11 @@ class Cart extends React.Component
                                         <div class="form-row ">
                                             <div class="form-group">
                                                 <label>
-                                                    <input type="text" class="form-control" placeholder="address"   onChange={(e) => {
-                                                this.handleChange(e) }} />
+                                                    <input type="text" class="form-control" placeholder="address"   onChange={handleChange} />
                                                 </label>
                                             </div>
                                             <div class="form-group">
-                                                <input  class="btn btn-primary" onClick={this.handleSubmit} value="ADD" />
+                                                <input  class="btn btn-primary" onClick={handleSubmit} value="ADD" />
                                             </div>
                                         </div>
                                     </form>
@@ -78,18 +121,22 @@ class Cart extends React.Component
                             </Popup>
                         </div>
                     </div>
-                    {/* {this.fields.map((a)=>( */}
+                    { 
+                        Cart.map(item=> {
+                            return(
+                                <div>
+                                    <Checkout_prod val={item} val3={update} />
+                                    </div>
+                            )
+                        })
                         
-                        <Checkout_prod val={this.fields} val3={this.update} />
-        
-                    {/* ))} */}
+                    }
                 </div>
-                        <Checkout_price  val5={this.state}/>
+                        <Checkout_price  val5={Cart}/>
                         
             </div>
             </div>
             
         );
     }
-}
 export default Cart;

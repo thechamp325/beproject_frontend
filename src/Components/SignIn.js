@@ -10,6 +10,7 @@ import '../Resources/vendor/select2/select2.min.css'
 import '../Resources/vendor/daterangepicker/daterangepicker.css'
 import '../Resources/css/util.css'
 import '../Resources/css/main.css'
+import axios from 'axios';
 
 const SignIn = () => {
     const [getAadhar,setAadhar] = useState()
@@ -24,6 +25,22 @@ const SignIn = () => {
         setPassword(event.target.value);
     }
     const submitHandler = (e) =>{
+        const obj = {
+            aadhar: getAadhar,
+            password: getPassword
+        };
+        console.log(obj);
+        axios.post('http://localhost:5000/shopkeeperData/login',obj)
+        .then(response => {
+             console.log(response);
+             setAadhar("");
+             setPassword("");
+            if(response.data[0]=="OK")
+            {
+                console.log("logged in");
+            }
+            })
+        .catch(error => { console.log(error)})
         setAuth(true);
     }
     const verifyLogin = () => {
@@ -41,7 +58,7 @@ const SignIn = () => {
         <div className="limiter">
         <div className="container-login100">
             <div className="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-                <form className="login100-form validate-form" onSubmit={submitHandler}>
+                <form className="login100-form validate-form" >
                     <span className="login100-form-title p-b-33">
                         Shopkeeper SignIn
                     </span>
@@ -60,7 +77,7 @@ const SignIn = () => {
                     </div>
 
                     <div className="container-login100-form-btn m-t-20">
-                        <button className="login100-form-btn">
+                        <button type="button" className="btn btn-primary" onClick={submitHandler}>
                             Sign In
                         </button>
                     </div>

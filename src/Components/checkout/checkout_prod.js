@@ -47,9 +47,11 @@ class Checkout_prod extends React.Component
     render()
     {
         return (
+            
 
                     
                     <div className='checkout-border row m-0 p-2'>
+
                         {console.log(this.props)}
                         <div className="col-3 p-2 " >
                             <img width="100%" src={this.props.val.productImages}/>

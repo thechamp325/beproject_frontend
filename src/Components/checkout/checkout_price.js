@@ -34,11 +34,11 @@ class Checkout_prod extends React.Component
             <div className=' checkout-border  m-0 p-2'>
                 <div className=" d-flex justify-content-between m-2">
                     <div className="price_det_font">Price</div>
-                    <div  className="mr-3 price_det_font"><span>₹{this.props.val5.price}</span></div>
+                    <div  className="mr-3 price_det_font"><span>₹{this.props.val5.reduce(function (acc, obj) { return acc + obj.price; }, 0)}</span></div>
                 </div>
                 <div className=" d-flex justify-content-between m-2">
                     <div className="price_det_font">Discount</div>
-                    <div  className="mr-3 price_det_font disc"><span>-₹{this.props.val5.offer}</span></div>
+                    <div  className="mr-3 price_det_font disc"><span>-₹{this.props.val5.reduce(function (acc, obj) { return acc + obj.offer; }, 0)}</span></div>
                 </div>
                 <div className=" d-flex justify-content-between m-2">
                     <div className="price_det_font">Delivery Charges</div>
@@ -46,7 +46,7 @@ class Checkout_prod extends React.Component
                 </div>
                 <div className=" d-flex justify-content-between m-2  total_price">
                     <div className="mt-3" >Total Price</div>
-                    <div  className="mr-3 mt-3">₹{this.props.val5.price-this.props.val5.offer}<span></span></div>
+                    <div  className="mr-3 mt-3">₹{this.props.val5.reduce(function (acc, obj) { return acc + obj.price; }, 0) - this.props.val5.reduce(function (acc, obj) { return acc + obj.offer; }, 0)}<span></span></div>
                 </div>
             </div>
             <div >

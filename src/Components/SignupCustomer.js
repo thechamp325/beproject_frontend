@@ -29,7 +29,10 @@ export class SignupCustomer extends Component {
                 state:'',
                 district:'',
                 taluka:'',
-                reg:0
+                reg:0,
+                Cartaddress:'',
+                Cartitems:[]
+                
             }
             this.baseState = this.state 
     }

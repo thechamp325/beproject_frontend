@@ -36,61 +36,61 @@ class Account extends Component {
         }
     };
 
-    //  getFarms=()=>
-    // {
-    //     console.log("made request with aadharid" + this.state.aadharid)
-    //      //axios.get('https://jsonplaceholder.typicode.com/users',{params:{aadharid:this.state.aadharid}})
-    //     axios.get('http://localhost:8080/farmer/show/farm',{params:{aadharid:this.state.aadharid}})
-    //     .then(response => {  
-    //     this.setState({posts:response.data,
-    //                     gotData:"1"}) 
-    //     }
-    //     ) 
-    //     .catch(
+     getShops=()=>
+    {
+        console.log("made request with aadharid" + this.state.aadharid)
+         //axios.get('https://jsonplaceholder.typicode.com/users',{params:{aadharid:this.state.aadharid}})
+        axios.get('http://localhost:5000/shopkeeperData/getinfoShopProfile/all')
+        .then(response => {  
+        this.setState({posts:response.data,
+                        gotData:"1"}) 
+        }
+        ) 
+        .catch(
             
-    //         error=>{ 
-    //             this.setState({error:"No Farms Found"})
-    //             console.log(error) }
-    //         )
+            error=>{ 
+                this.setState({error:"No Farms Found"})
+                console.log(error) }
+            )
 
-    // };
+    };
 
-    // componentDidMount()
-    // {
-    //     if(this.state.aadharid!==undefined)
-    //     this.getFarms();
-    //     console.log("mounted")
-    //     let Currstate
-    //     //try to load from local storage
-    //     Currstate=this.loadLocalData()
-    //     //save state to local storage
-    //     if(Currstate===undefined)
-    //     {
-    //         try{
-    //             const serializedState=JSON.stringify(this.state)
-    //             localStorage.setItem('MyFarmState',serializedState)
-    //             console.log("saved this state")
-    //         }
-    //         catch(e)
-    //         {
-    //             console.log(e)
-    //         }
-    //     }
-    //     else{
-    //         let latestState=JSON.parse(Currstate)
-    //         console.log(latestState)
-    //         console.log("this state was retrieved")
-    //         if(this.state.aadharid===undefined)
-    //         this.setState(latestState)
-    //     }
-    // }
+    componentDidMount()
+    {
+        if(this.state.aadharid!==undefined)
+        this.getShops();
+        console.log("mounted")
+        let Currstate
+        //try to load from local storage
+        Currstate=this.loadLocalData()
+        //save state to local storage
+        if(Currstate===undefined)
+        {
+            try{
+                const serializedState=JSON.stringify(this.state)
+                localStorage.setItem('MyFarmState',serializedState)
+                console.log("saved this state")
+            }
+            catch(e)
+            {
+                console.log(e)
+            }
+        }
+        else{
+            let latestState=JSON.parse(Currstate)
+            console.log(latestState)
+            console.log("this state was retrieved")
+            if(this.state.aadharid===undefined)
+            this.setState(latestState)
+        }
+    }
      
     
 
 
     render() {
         if(this.state.gotData==="0")
-        this.getFarms()
+        this.getShops()
         const{posts}=this.state
         // console.log(this.state)
         
@@ -120,7 +120,7 @@ class Account extends Component {
                                      posts.length ?
                                             posts.map(post=>
                                             <div className="col-md-4" key={post.farmid}>
-                                            <ShopTile farmid={post.farmid}></ShopTile>
+                                            <ShopTile shop={post}></ShopTile>
                                             </div>) 
                                     :null
                                 }

@@ -10,10 +10,25 @@ const Buy = (props) => {
   //   super(props);
     
   // }
+  const ProductData= props.location.state;
+
   const SubmitHandlerAddtoCart = (props) => {
 
+  const submitdata = {
+      data: {
+        name:"atharva127",
+        items:ProductData
+      }
+      
+  };
+  axios.post('http://localhost:5000/customer/postinfoCart',submitdata)
+  .then(response => {
+       console.log(response)
+      
+      })
+  .catch(error => { console.log(error)})
+
   }
-  const ProductData= props.location.state;
 
   
   

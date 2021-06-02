@@ -11,8 +11,9 @@ const ViewGroup = (props) => {
     const getGroupItems = () => {
         axios.get(`${urlgetGroupItems}`)
         .then((response) => {
-           const allItems =  response.data[0];
+           const allItems =  response.data;
            setItems(allItems);
+           console.log(getItems);
         })
         .catch(error => console.log(`Error: ${error}`));
      }
@@ -101,9 +102,9 @@ const handleSubmit = (e) => {
                         return (
                             <tr>
                                 <th scope="row">{index}</th>
-                                <td>{items.productName}</td>
-                                <td>{items.quantity}</td>
-                                <td>{items.price}</td>
+                                <td>{items[0].productName}</td>
+                                <td>{items[0].quantity}</td>
+                                <td>{items[0].price}</td>
                                 <td>
                                     <input type="checkbox" onChange={(e) => {handlechangecheck(e,items.name) }} />
                                 </td>
