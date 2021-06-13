@@ -70,7 +70,7 @@ class ProductChart extends React.Component {
     return (
       <div>
         <div>
-                <InventoryNavbar />
+                <InventoryNavbar data = {this.props.location.state}/>
             </div>
         <div class="m-3 ">
         <h1 class="heading pb-3 ">Search Product</h1>

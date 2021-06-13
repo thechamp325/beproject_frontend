@@ -14,7 +14,7 @@ const ProductTiles = (props) => {
                     <div className="card-footer">
                     <Link to={{
                     pathname: '/buy',
-                    state: props.productinfo
+                    state: props
                     }} className="btn btn-primary" > BUY </Link>
                         {/* <a href={`${props.productinfo.buylink}`} className="btn btn-primary">BUY</a> */}
                     </div>

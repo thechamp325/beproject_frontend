@@ -10,11 +10,15 @@ import '../Resources/vendor/select2/select2.min.css'
 import '../Resources/vendor/daterangepicker/daterangepicker.css'
 import '../Resources/css/util.css'
 import '../Resources/css/main.css'
+import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 const SigninCustomer = () => {
     const [getAadhar,setAadhar] = useState()
     const [getPassword,setPassword] = useState()
     const [getAuth,setAuth] = useState(false)
+    const history = useHistory();
+;
 
 
     const aadharHandler = (event) =>{
@@ -23,7 +27,30 @@ const SigninCustomer = () => {
     const passwordHandler = (event) =>{
         setPassword(event.target.value);
     }
-    const submitHandler = (e) =>{
+    const submitHandler = async (e) =>{
+        const obj = {
+            aadhar: getAadhar,
+            password: getPassword
+        };
+        console.log(obj);
+        await axios.post('http://localhost:5000/customer/login',obj)
+        .then(response => {
+            //  setData(response.data[0]);
+            //  console.log(getData);
+
+             setAadhar('');
+             setPassword('');
+             if(response.data[0].aadharid == Number(getAadhar))
+             {
+                 console.log("logged in");
+                 console.log(response.data[0]);
+                 history.push({
+                     pathname: '/home',
+                     state: response.data[0]
+                 });
+             }
+            })
+        .catch(error => { console.log(error)});
         setAuth(true);
     }
     const verifyLogin = () => {
@@ -41,7 +68,7 @@ const SigninCustomer = () => {
         <div className="limiter">
         <div className="container-login100">
             <div className="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-                <form className="login100-form validate-form" onSubmit={submitHandler}>
+                <form className="login100-form validate-form" >
                     <span className="login100-form-title p-b-33">
                         Customer SignIn
                     </span>
@@ -60,7 +87,7 @@ const SigninCustomer = () => {
                     </div>
 
                     <div className="container-login100-form-btn m-t-20">
-                        <button className="login100-form-btn">
+                    <button type="button" className="btn btn-primary" onClick={submitHandler}>
                             Sign In
                         </button>
                     </div>

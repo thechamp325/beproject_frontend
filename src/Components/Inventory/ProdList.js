@@ -80,7 +80,7 @@ const handleSubmit = (e) => {
 
     return(
         <div>
-            <InventoryNavbar/>
+            <InventoryNavbar data = {props.location.state}/>
             <div>
             <div className="col-12 col-md-8">
                 <table class="table">

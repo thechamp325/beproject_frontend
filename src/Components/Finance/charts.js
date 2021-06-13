@@ -19,7 +19,7 @@ render(){
     return (
         <div> 
             <div>
-                <FinanceNavbar/>
+                <FinanceNavbar data = {this.props.location.state} />
             </div>
         <div class="row" >
             <div class="col-md-6">

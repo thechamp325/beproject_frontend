@@ -117,7 +117,7 @@ console.log(submitdata);
      
      <div>
        <div>
-         <BookkeepingNavbar/>
+         <BookkeepingNavbar data ={props.location.state} />
        </div>
        <div class={"pl-3"} style={{fontSize:"50px"}}>
            Bookkeeping

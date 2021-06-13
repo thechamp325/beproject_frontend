@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
 import '../../Resources/css/navbar.css'
 import {Link} from 'react-router-dom'
- class FinanceNavbar extends Component {
-    render() {
+import { useHistory } from "react-router-dom";
+
+ const FinanceNavbar = (props) => {
+  const history = useHistory();
+
         return (
            <div>
               <div class="topnav">
-
-                    <Link to="/account">Account</Link>
-                    <Link to="/chart">Analysis</Link>
-                    <Link to="/finance">TradeBook</Link>
-                    <Link to="/addPurchases">Add Purchases</Link>
+              <a onClick={() => history.push({
+                     pathname: '/account',
+                     state: props.data
+                  })}>Account</a>
+                  <a onClick={() => history.push({
+                     pathname: '/chart',
+                     state: props.data
+                  })}>Analysis</a>
+                  <a onClick={() => history.push({
+                     pathname: '/finance',
+                     state: props.data
+                  })}>TradeBook</a>
+                  <a onClick={() => history.push({
+                     pathname: '/addPurchases',
+                     state: props.data
+                  })}>Add Purchases</a>
 
 
                     {/* <Link to="/salstoes">Sales</Link>
@@ -28,6 +42,5 @@ import {Link} from 'react-router-dom'
 </div> 
            </div>
         )
-    }
 }
 export default FinanceNavbar;

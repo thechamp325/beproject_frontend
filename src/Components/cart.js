@@ -7,7 +7,7 @@ import Popup from 'reactjs-popup';
 import OnlineShopNavbar from '../Pages/OnlineShopNavbar';
 import axios from 'axios';
 
-const Cart = () => {
+const Cart = (props) => {
     const address="Address sfnlnfe efonefnef eofnef laedhflj aerdfgj ablihang lairhg";
     
 
@@ -21,7 +21,7 @@ const Cart = () => {
     const urlCart= "http://localhost:5000/sustomer/getinfoCart";
 
     const [Cart,setCart]=useState([]);
-    const urlgetCart= "http://localhost:5000/customer/getinfoCart/atharva129";
+    const urlgetCart= `http://localhost:5000/customer/getinfoCart/${props.location.state.aadharid}`;
     useEffect(() => {     getCartData();}, []);
 
     const getCartData = () => {
@@ -83,8 +83,10 @@ const Cart = () => {
         
         return (
             <div>
+              {console.log("in cart")}
+              {console.log(props)}
                 <div>
-                    <OnlineShopNavbar/>
+                    <OnlineShopNavbar data ={props.location.state} />
                 </div>
             <div className='row m-0 p-3' >
                 <div className='col-md-8'> 

@@ -1,6 +1,7 @@
 import React,{ReactDOM} from 'react';
 import './Checkout.css';
 import gpay from "../../Resources/images/payments/gpay.jpeg";
+import Gpay from "../GenerateBill/Gpay"
 class Checkout_prod extends React.Component
 {
     constructor(props)
@@ -83,7 +84,8 @@ class Checkout_prod extends React.Component
                         </div>
                     </div>
                     <div style={{paddingLeft:"330px",paddingBottom:"20px"}}>
-                        <button className='btn btn-primary' >Place Order</button>
+                        <Gpay/>
+                        {/* <button className='btn btn-primary' >Place Order</button> */}
                     </div>
                 </div>
                 {/* <div class="checkout-border center"> 

@@ -36,7 +36,7 @@ const Checkout = (props) => {
         return (
             <div>
                 <div>
-                    <OnlineShopNavbar/>
+                    <OnlineShopNavbar data ={props.location.state} />
                 </div>
             <div className='row m-0 p-3' >
                 <div className='col-md-8'> 

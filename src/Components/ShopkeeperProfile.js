@@ -6,12 +6,16 @@ import namo from '../media/namo.jpg';
 const ShopkeeperProfile = (props) => {
 
     const [profileData,setprofileData] = useState({
-        name:"Narendra Modi",
-        mobile:"7767832966"
+        name:props.data.name,
+        mobile:props.data.mobile
     });
    
     return(
+        
+    
         <div className='checkout-border row m-0 p-2'>
+            {console.log("in shop profile")}
+            {console.log(props)}
                         
                         <div className="col-3 p-2 " >
                             <img width="100%" src={namo}/>

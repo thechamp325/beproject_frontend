@@ -20,7 +20,7 @@ const AddShop =(props)=> {
             // })
 
             // const [state,setState] = useState();
-  const [aadharid, setaadhaid] = useState('123456789012');
+  const [aadharid, setaadharid] = useState('');
     const [Name, setName] = useState('');
     const [StateName, setStateName] = useState('');
     const [District, setDistrict] = useState('');
@@ -28,6 +28,7 @@ const AddShop =(props)=> {
     const [Pincode, setPincode] = useState();
     const [Location, setLocation] = useState('');
     const [Shopid, setShopid] = useState('1');
+    // setaadharid(props.location.state.aadharid);
     
     const handleChangeName = (e) => {
         setName(e.target.value);
@@ -52,7 +53,7 @@ const AddShop =(props)=> {
         e.preventDefault() ;
         const data = {
             uds: [{
-                aadharid:aadharid,
+                aadharid:props.location.state.aadharid,
                 Name:Name,
                 State:StateName,
                 District:District,
@@ -88,7 +89,7 @@ const AddShop =(props)=> {
         return (
             <div>
                 <div>
-                    <PrimarySearchAppBar/>
+                <PrimarySearchAppBar data = {props.location.state}/>
                 </div>
 
                 <form >

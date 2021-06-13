@@ -1,17 +1,41 @@
 import React, { Component } from 'react'
 import '../../Resources/css/navbar.css'
+import { useHistory } from "react-router-dom";
+
 import {Link} from 'react-router-dom'
- class InventoryNavbar extends Component {
-    render() {
+ const InventoryNavbar = (props) =>{
+  const history = useHistory();
+
         return (
            <div>
               <div class="topnav">
 
-                    <Link to="/account">Account</Link>
-                    <Link to="/ordermanagement">Manage Orders</Link>
-                    <Link to="/inventory">Inventory</Link>
-                    <Link to="/productchart">Product Analysis</Link>
-                    <Link to="/prodlist">Products</Link>
+              <a onClick={() => history.push({
+                     pathname: '/account',
+                     state: props.data
+                  })}>Account</a>    
+
+                <a onClick={() => history.push({
+                     pathname: '/ordermanagement',
+                     state: props.data
+                  })}>Manage Orders</a>
+
+                  <a onClick={() => history.push({
+                     pathname: '/inventory',
+                     state: props.data
+                  })}>Inventory</a>  
+
+                  <a onClick={() => history.push({
+                     pathname: '/productchart',
+                     state: props.data
+                  })}>Product Analysis</a>  
+
+                    {/* <Link to="/productchart">Product Analysis</Link> */}
+                    <a onClick={() => history.push({
+                     pathname: '/prodlist',
+                     state: props.data
+                  })}>Products</a>  
+                    {/* <Link to="/prodlist">Products</Link> */}
 
                     {/* <Link to="/salstoes">Sales</Link>
                     <Link to="/purchases">Purchases</Link> */}
@@ -28,6 +52,5 @@ import {Link} from 'react-router-dom'
 </div> 
            </div>
         )
-    }
 }
 export default InventoryNavbar;

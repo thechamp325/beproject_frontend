@@ -103,7 +103,7 @@ const renderTableData = () => {
     return(
       <div>
 
-        <FinanceNavbar />
+        <FinanceNavbar data = {props.location.state} />
         <br/>
         
         <div className= "center">

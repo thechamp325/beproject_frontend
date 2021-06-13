@@ -1,17 +1,32 @@
 import React, { Component } from 'react'
 import '../Resources/css/navbar.css'
 import {Link} from 'react-router-dom'
- class OnlineShopNavbar extends Component {
-    render() {
+import { useHistory } from "react-router-dom";
+
+ const OnlineShopNavbar = (props) => {
+  const history = useHistory();
+
         return (
            <div>
               <div class="topnav">
 
-                    {/* <Link to="/home">Home</Link> */}
-                    <Link to="/Home">Home</Link>
-                    <Link to="/Cart">Cart</Link>
-                  <Link to="/search">Search Shops</Link>
+                    <a onClick={() => history.push({
+                     pathname: '/Home',
+                     state: props.data
+                  })}>Home</a>
 
+                  <a onClick={() => history.push({
+                     pathname: '/Cart',
+                     state: props.data
+                  })}>Cart</a>
+                  <a href = "localhost:8080">Search Shops</a>
+
+                  {/* <a onClick={() =>{
+                     console.log("doing something");
+                     const win = window.open("localhost:8080", "_blank");
+                     win.focus();
+                  }}>Search Shops</a> */}
+               
                     {/* <Link to="/inventory">Inventory</Link>
                     <Link to="/finance">Finance</Link>
                     <Link to="/generateBill">GenerateBill</Link>
@@ -29,6 +44,5 @@ import {Link} from 'react-router-dom'
 </div> 
            </div>
         )
-    }
 }
 export default OnlineShopNavbar;

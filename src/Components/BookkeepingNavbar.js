@@ -1,20 +1,28 @@
 import React, { Component } from 'react'
 import '../Resources/css/navbar.css'
 import {Link} from 'react-router-dom'
- class BookkeepingNavbar extends Component {
-    render() {
+import { useHistory } from "react-router-dom";
+
+ const BookkeepingNavbar =(props) => {
+  const history = useHistory();
+
         return (
            <div>
               <div class="topnav">
 
-                    {/* <Link to="/home">Home</Link> */}
-                    <Link to="/account">Account</Link>
-                    {/* <Link to="/inventory">Inventory</Link>
-                    <Link to="/finance">Finance</Link>
-                    <Link to="/generateBill">GenerateBill</Link> */}
-                    <Link to="/bookkeeping">Bookkeeping</Link>
-                    <Link to="/bookkeepinglist">Credit Book</Link>
-
+              <a onClick={() => history.push({
+                     pathname: '/account',
+                     state: props.data
+                  })}>Account</a>
+                  <a onClick={() => history.push({
+                     pathname: '/bookkeeping',
+                     state: props.data
+                  })}>Bookkeeping</a>
+                  <a onClick={() => history.push({
+                     pathname: '/bookkeepinglist',
+                     state: props.data
+                  })}>Credit Book</a>
+                   
 
 
 
@@ -28,6 +36,5 @@ import {Link} from 'react-router-dom'
 </div> 
            </div>
         )
-    }
 }
 export default BookkeepingNavbar;

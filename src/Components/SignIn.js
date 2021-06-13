@@ -1,5 +1,7 @@
 import React,{ useCallback, useEffect, useState } from 'react'
 import {Link,Redirect} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+
 import '../Resources/vendor/bootstrap/css/bootstrap.min.css'
 import '../Resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css'
 import '../Resources/fonts/Linearicons-Free-v1.0.0/icon-font.min.css'
@@ -13,9 +15,13 @@ import '../Resources/css/main.css'
 import axios from 'axios';
 
 const SignIn = () => {
-    const [getAadhar,setAadhar] = useState()
-    const [getPassword,setPassword] = useState()
+    const [getAadhar,setAadhar] = useState();
+    const [getPassword,setPassword] = useState();
+    const [getData,setData] = useState([]);
+
     const [getAuth,setAuth] = useState(false)
+    const history = useHistory();
+
 
 
     const aadharHandler = (event) =>{
@@ -24,31 +30,41 @@ const SignIn = () => {
     const passwordHandler = (event) =>{
         setPassword(event.target.value);
     }
-    const submitHandler = (e) =>{
+    const submitHandler = async (e) =>{
         const obj = {
             aadhar: getAadhar,
             password: getPassword
         };
         console.log(obj);
-        axios.post('http://localhost:5000/shopkeeperData/login',obj)
+        await axios.post('http://localhost:5000/shopkeeperData/login',obj)
         .then(response => {
-             console.log(response);
-             setAadhar("");
-             setPassword("");
-            if(response.data[0]=="OK")
-            {
-                console.log("logged in");
-            }
+            //  setData(response.data[0]);
+            //  console.log(getData);
+
+             setAadhar('');
+             setPassword('');
+             if(response.data[0].aadharid == Number(getAadhar))
+             {
+                 console.log("logged in");
+                 console.log(response.data[0]);
+                 history.push({
+                     pathname: '/account',
+                     state: response.data[0]
+                 });
+             }
             })
-        .catch(error => { console.log(error)})
+        .catch(error => { console.log(error)});
         setAuth(true);
+        
+       
+    
     }
     const verifyLogin = () => {
         if(getAuth===true){
             console.log(getAuth);
             return <Link to={{
                 pathname: '/account',
-                state: { aadharid: this.state.aadharid }
+                state: { aadharid: getAadhar}
             }}/>
         }
     }
@@ -65,13 +81,13 @@ const SignIn = () => {
 
 
                    <div className="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                        <input className="input100" type="text" name="aadhar" onChange={aadharHandler} placeholder="AdhaarID"></input>
+                        <input className="input100" type="text" name="aadhar" onChange={aadharHandler} value={getAadhar} placeholder="AdhaarID"></input>
                         <span className="focus-input100-1"></span>
                         <span className="focus-input100-2"></span>
                     </div><br/>
 
                    <div className="wrap-input100 rs1 validate-input" data-validate="Password is required">
-                        <input className="input100" type="password" name="password"  onChange={passwordHandler} placeholder="Password"></input>
+                        <input className="input100" type="password" name="password"  onChange={passwordHandler} value={getPassword} placeholder="Password"></input>
                         <span className="focus-input100-1"></span>
                         <span className="focus-input100-2"></span>
                     </div>

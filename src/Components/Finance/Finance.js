@@ -8,7 +8,7 @@ import FinanceNavbar from './FinanceNavbar';
 const Finance = (props) => {
    return(
        <div>
-           <FinanceNavbar />
+           <FinanceNavbar data ={props.location.state} />
            <br/>
            <div class="d-flex flex-row">
            <div className= "col-12 col-md-6">

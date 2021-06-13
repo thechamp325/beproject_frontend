@@ -10,13 +10,13 @@ const Buy = (props) => {
   //   super(props);
     
   // }
-  const ProductData= props.location.state;
+  const ProductData= props.location.state.productinfo;
 
-  const SubmitHandlerAddtoCart = (props) => {
+  const SubmitHandlerAddtoCart = () => {
 
   const submitdata = {
       data: {
-        name:"atharva127",
+        aadharid:props.location.state.data.aadharid,
         items:ProductData
       }
       
@@ -38,9 +38,10 @@ const Buy = (props) => {
 
     return (
       <div>
+        {console.log("in buy")}
         {console.log(props.location.state)}
         <div>
-          <OnlineShopNavbar/>
+          <OnlineShopNavbar data ={props.location.state.data} />
         </div>
         <div class="row rowpadding ">
 

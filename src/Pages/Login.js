@@ -25,6 +25,8 @@ import ShopkeeperProfile from '../Components/ShopkeeperProfile';
 import Cart from '../Components/cart';
 import Onlineshop from '../Pages/OnlineShop';
 import Search from '../Components/searchshop';
+// import Gmap from '../Components/Gmap';
+
 
 
 
@@ -61,6 +63,8 @@ const Login = () => {
                 <Route path="/cart" component={Cart}></Route>
                 <Route path="/onlineshop" component={Onlineshop}></Route>  
                 <Route path="/search" component={Search}></Route>  
+                {/* <Route path="/gmap" component={Gmap}></Route>   */}
+
 
 
 

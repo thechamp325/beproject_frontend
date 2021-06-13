@@ -9,7 +9,7 @@ import GenerateBill_payment from './GenerateBill_payment.css';
 import Image2 from "../../Resources/images/payments/bhim.jpg";
 import Image3 from "../../Resources/images/payments/bhim.jpg";
 import Image1 from "../../Resources/images/payments/gpay.jpeg";
-
+import Gpay from './Gpay';
 
 const GenerateBill = (props) => {
     const [getItems,setItems] = useState([]);
@@ -104,7 +104,7 @@ const renderTableData = () => {
     return(
       <div>
 
-        <PrimarySearchAppBar />
+        <PrimarySearchAppBar data ={props.location.state} />
         <br/>
 
         <div className= "center">

@@ -180,7 +180,7 @@ const getProductsData = () => {
                 
                     <div className="row text-center">
                     {ProductData.map((ProductData)=>{
-                        return <ProductTiles productinfo={ProductData} />
+                        return <ProductTiles data={props.data} productinfo={ProductData} />
                     })}
                         
                     </div>

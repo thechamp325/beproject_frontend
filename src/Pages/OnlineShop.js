@@ -44,7 +44,7 @@ class Onlineshop extends React.Component {
      
      <div>
        <div>
-         <PrimarySearchAppBar/>
+         <PrimarySearchAppBar data ={this.props.location.state} />
        </div>
        <div class={"pl-3"} style={{fontSize:"50px"}}>
            Online Shop

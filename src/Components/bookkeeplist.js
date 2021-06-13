@@ -52,7 +52,7 @@ const Bookkeeplist = (props) => {
     return(
         <div>
             <div>
-                <BookkeepingNavbar/>
+                <BookkeepingNavbar data ={props.location.state} />
             </div>
             <div class={"pl-5"} style={{fontSize:"50px"}}>
                 Credit Book
