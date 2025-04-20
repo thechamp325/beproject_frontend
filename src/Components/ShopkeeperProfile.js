@@ -38,9 +38,7 @@ const ShopkeeperProfile = (props) => {
                             <div className="pri">
                                  <span>{profileData.mobile}</span> 
                             </div>
-                            <div className="button pl-2">
-                                <button className="btn btn-primary" style={{fontSize:"10px"}}>Edit Profile</button>
-                            </div>
+                           
                         </div>
                         
                       

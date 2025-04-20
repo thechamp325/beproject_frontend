@@ -55,7 +55,14 @@ const SignIn = () => {
             })
         .catch(error => { console.log(error)});
         setAuth(true);
+        // history.push({
+        //                  pathname: '/account',
+        //                  state: Number(getAadhar)
+        //              });
+        console.log("logged in");
         
+       
+       
        
     
     }
