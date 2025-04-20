@@ -77,27 +77,35 @@ const renderTableData = () => {
  };
 
 
- const submitHandler =(e) =>{ 
-  console.log(getItems);
+ const submitHandler = (e) => { 
+  e.preventDefault();
 
-  e.preventDefault() ;
   const data = {
-      uds: getItems
+    uds: getItems
   };
-  const submitdata = {
-      data: data
-  };
-  console.log(data);
-  setItems([]);
 
-  axios.post('http://localhost:5000/finance/postBillSales',submitdata)
-  .then(response => {
-       console.log(response)
-       setItems([]);
-      
-      })
-  .catch(error => { console.log(error)})
-    }
+  const submitdata = {
+    data: data
+  };
+
+  console.log(data);
+
+  axios.post('http://localhost:5000/finance/postBillSales', submitdata)
+    .then(response => {
+      console.log(response);
+      setItems([]);
+    })
+    .catch(error => {
+      if (error.response && error.response.status === 400) {
+        // Show alert with backend message
+        alert(error.response.data.message); // Example: "Insufficient quantity for ProductA"
+      } else {
+        // Handle other errors
+        console.error("Unexpected error:", error);
+      }
+    });
+};
+
 
 
 
