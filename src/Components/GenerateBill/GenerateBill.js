@@ -77,34 +77,41 @@ const renderTableData = () => {
  };
 
 
- const submitHandler = (e) => { 
+ const submitHandler = (e) => {
   e.preventDefault();
 
   const data = {
     uds: getItems
   };
-
   const submitdata = {
     data: data
   };
 
-  console.log(data);
-
   axios.post('http://localhost:5000/finance/postBillSales', submitdata)
     .then(response => {
       console.log(response);
+
+      // Check for custom message (like sold out)
+      if (response.data?.message) {
+        alert(response.data.message);
+      } else {
+        alert('Bill generated successfully!');
+      }
+
       setItems([]);
+      setFinalPrice(0);
     })
     .catch(error => {
-      if (error.response && error.response.status === 400) {
-        // Show alert with backend message
-        alert(error.response.data.message); // Example: "Insufficient quantity for ProductA"
+      if (error.response?.status === 400) {
+        const errorMsg = error.response.data?.message || 'Insufficient stock for one or more products.';
+        alert(`Error: ${errorMsg}`);
       } else {
-        // Handle other errors
-        console.error("Unexpected error:", error);
+        alert('Something went wrong while processing the bill.');
       }
+      console.error(error);
     });
-};
+}
+
 
 
 
